@@ -2,11 +2,25 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle, defaultTheme, darkTheme } from "./utils";
-import { Button, PrimaryButton, SecondaryButton } from "./components";
+import { Button } from "./components";
+import Theme from "./Theme";
 
 const App = () => {
-  const [useDarkTheme, setUseDarkTheme] = useState(false);
+  // const [useDarkTheme, setUseDarkTheme] = useState(false);
   return (
+    <Theme>
+      <Button
+        style={{ margin: "16px" }}
+        onClick={() => alert("Clicked!")}
+        modifiers={["large", "primary"]}
+      >
+        This is a button
+      </Button>
+    </Theme>
+  );
+};
+
+/* 
     <ThemeProvider theme={useDarkTheme ? darkTheme : defaultTheme}>
 
       <Button
@@ -59,8 +73,7 @@ const App = () => {
       </Button>
 
       <GlobalStyle />
-    </ThemeProvider>
-  );
-};
+    </ThemeProvider> 
+    */
 
 ReactDOM.render(<App />, document.querySelector("#root"));
