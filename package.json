@@ -1,7 +1,7 @@
 {
-  "name": "componentlibrary",
+  "name": "@comfortdelgro/design-system",
+  "description": "Comfort Delgro's design system",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -62,6 +62,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-contexts": "^5.3.21",
     "@storybook/addon-essentials": "^6.4.22",
@@ -75,5 +77,10 @@
     "@storybook/testing-library": "^0.0.11",
     "eslint-plugin-baseui": "^11.0.2",
     "webpack": "^5.72.0"
+  },
+  "main": "./src/register.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comfortdelgro/components"
   }
 }
