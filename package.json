@@ -1,7 +1,7 @@
 {
-  "name": "zig-components",
-  "description": "Comfort Delgro's react component library",
-  "version": "0.1.8-beta",
+  "name": "@comfortdelgro/design-system",
+  "description": "Comfort Delgro's design system",
+  "version": "0.1.0",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
