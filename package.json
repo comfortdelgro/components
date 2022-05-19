@@ -1,7 +1,7 @@
 {
   "name": "@comfortdelgro/design-system",
   "description": "Comfort Delgro's design system",
-  "version": "0.2.1-beta",
+  "version": "0.3.1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
