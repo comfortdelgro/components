@@ -4,6 +4,8 @@ import { normalize } from "polished";
 
 export const GlobalStyle = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css?family=Barlow");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
 ${normalize()}
 html {
   box-sizing: border-box;
