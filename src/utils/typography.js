@@ -1,4 +1,5 @@
 export const primaryFont = "Barlow";
+export const secondaryFont = "Poppins";
 
 export const headerScales = [
   {

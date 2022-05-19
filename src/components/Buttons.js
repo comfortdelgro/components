@@ -26,12 +26,12 @@ export const BUTTON_MODIFIERS = {
   light: ({theme}) => `
     color: ${theme.primaryColors.cdgBlue80};
     background-color: ${theme.primaryColors.white};
-    border: 2px solid ${theme.buttonOutline};
+    border: 2px solid ${theme.outline};
   `,
-  lightSecondary: ({theme}) => `
+  'light-secondary': ({theme}) => `
     color: ${theme.primaryColors.cdgBlue80};
     background-color: ${theme.primaryColors.white};
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+    box-shadow: ${theme.shadows.light};
   `,
 };
 
@@ -62,32 +62,3 @@ export const Button = styled.button`
 
   ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `;
-
-/**
- * TODO:: remo them if modifiers are stable
- * NOTE:: Codes before refactoring with modifiers
- */
-// export const PrimaryButton = styled(Button)`
-//   background-color: ${props => props.theme.primaryColors.cdgBlue80};
-//   border: unset;
-
-//   &:disabled {
-//     background-color: ${props => props.theme.disabled};
-//     color: ${props => props.theme.textOnDisabled};
-//     cursor: not-allowed;
-//   }
-//   ${applyStyleModifiers(BUTTON_MODIFIERS)};
-// `;
-
-// export const SecondaryButton = styled(Button)`
-//   color: ${props => props.theme.primaryColors.cdgBlue80};
-//   background-color: ${props => props.theme.secondaryColors.SecondaryButton};
-//   border: unset;
-
-//   &:disabled {
-//     background-color: ${props => props.theme.disabled};
-//     color: ${props => props.theme.textOnDisabled};
-//     cursor: not-allowed;
-//   }
-//   ${applyStyleModifiers(BUTTON_MODIFIERS)};
-// `;
