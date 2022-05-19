@@ -1,30 +1,23 @@
-# Getting Started with Zig Components
-
-## Installation
-```
-npm i @comfortdelgro/design-sytem
-```
-
-### Usage
-```
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
-import { defaultTheme, Button, RadioGroup, Radio, Badge } from "@comfortdelgro/design-system";
+import { GlobalStyle, defaultTheme, darkTheme } from "../utils";
+import { Badge, Button, RadioGroup, Radio } from "../components";
+import Theme from "../Theme";
 
-function App() {
+const App = () => {
+  const [useDarkTheme, setUseDarkTheme] = useState(false);
   const [selectedRadioValue, setSelectedRadioValue] = useState("");
-
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <Theme>
       <Button
-      style={{ margin: "16px" }}
-      onClick={() => alert("Clicked!")}
-      modifiers={["large", "primary"]}
+        style={{ margin: "16px" }}
+        onClick={() => alert("Clicked!")}
+        modifiers={["large", "light-secondary"]}
       >
         This is a button
       </Button>
-
       <br/>
-
       <RadioGroup
         name="setRadioType"
         onClickRadioButton={setSelectedRadioValue}
@@ -37,9 +30,7 @@ function App() {
         <Radio style={{ margin: "16px" }} type="light" value="light" labelText="Light" />
         <Radio style={{ margin: "16px" }} type="light-secondary" value="light-secondary" labelText="Light Secondary" />
       </RadioGroup>
-
       <br/>
-
       <Badge style={{ margin: "16px" }}> Label </Badge>
       <Badge style={{ margin: "16px" }} type="primary"> Label </Badge>
       <Badge style={{ margin: "16px" }} type="orange"> Label </Badge>
@@ -53,10 +44,64 @@ function App() {
       <Badge style={{ margin: "16px" }} type="purple-light"> Label </Badge>
       <Badge style={{ margin: "16px" }} type="red-light"> Label </Badge>
       <Badge style={{ margin: "16px" }} type="green-light"> Label </Badge>
-
-    </ThemeProvider>
+    </Theme>
   );
-}
+};
 
-export default App;
-```
+/* 
+    <ThemeProvider theme={useDarkTheme ? darkTheme : defaultTheme}>
+
+      <Button
+        style={{ margin: "16px" }}
+        onClick={() => alert("Clicked!")}
+        modifiers={["large", "primary"]}
+      >
+        This is a button
+      </Button>
+
+      <Button
+        style={{ margin: "16px" }}
+        onClick={() => alert("Clicked!")}
+        modifiers={["large", "secondary"]}
+      >
+        This is a button
+      </Button>
+
+      <Button
+        style={{ margin: "16px" }}
+        onClick={() => alert("Clicked!")}
+        modifiers={["large", "orange"]}
+      >
+        This is a button
+      </Button>
+
+      <Button
+        style={{ margin: "16px" }}
+        onClick={() => alert("Clicked!")}
+        modifiers={["large", "light"]}
+      >
+        This is a button
+      </Button>
+
+      <Button
+        style={{ margin: "16px" }}
+        onClick={() => alert("Clicked!")}
+        modifiers={["large", "lightSecondary"]}
+      >
+        This is a button
+      </Button>
+
+      <Button
+        style={{ margin: "16px" }}
+        onClick={() => alert("Clicked!")}
+        modifiers={["large"]}
+        disabled
+      >
+        This is a button
+      </Button>
+
+      <GlobalStyle />
+    </ThemeProvider> 
+    */
+
+ReactDOM.render(<App />, document.querySelector("#root"));

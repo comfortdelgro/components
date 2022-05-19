@@ -1,17 +1,13 @@
 export const white = "#FFFFFF";
 
-export const red = "#A8000B";
-
 export const orange = "#EF631A";
 
-export const yellow = "#FFC107";
-
-export const green = "#00847F";
-
 export const blue = {
+  500: "#0747A6",
   100: "#080C4E",
   80: "#0142AF",
   60: "#044CC5",
+  50: "#DEEBFF",
   40: "#008BF8",
   20: "#7BD7FF",
   10: "#D2E2F1",
@@ -27,6 +23,38 @@ export const grey = {
   40: "#D7D8D6",
   20: "#E6E6E6",
   10: "#F7F8F9",
+};
+
+export const neutral = {
+  800: "#172B4D",
+  500: "#42526E",
+  40: "#DFE1E6",
+  0: "#FFFFFF",
+};
+
+export const purple = {
+  400: "#5243AA",
+  50: "#EAE6FF",
+};
+
+export const red = {
+  500: "#BF2600",
+  400: "#DE350B",
+  100: "#A8000B",
+  50: "#FFEBE6",
+};
+
+export const green = {
+  500: "#006644",
+  400: "#00875A",
+  100: "#00847F",
+  50: "#E3FCEF",
+};
+
+export const yellow = {
+  500: "#FF8B00",
+  100: "#FFC107",
+  75: "#FFF0B3",
 };
 
 export const tint = {
