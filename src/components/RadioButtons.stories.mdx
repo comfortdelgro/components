@@ -1,0 +1,43 @@
+import { Meta, Story, Preview, Canvas } from "@storybook/addon-docs";
+import { action } from "@storybook/addon-actions";
+import { RADIO_BUTTON_TYPES, RadioGroup, Radio } from "./RadioButtons";
+
+<Meta title="Components" component={Radio} />
+
+# Radio Buttons
+
+Radio buttons are used to select options within an application.
+
+## Usage
+
+Radio buttons are used to select options within an application.
+
+<Canvas withToolbar>
+  <Story 
+    name="Radio Buttons"
+    argTypes={{
+      type: {
+        options: [Object.values(RADIO_BUTTON_TYPES)],
+        defaultValue: RADIO_BUTTON_TYPES.PRIMARY,
+        control: { type: 'radio' },
+      },
+    }}>
+    {() => {
+      const [selectedRadioValue, setSelectedRadioValue] = useState("");
+    
+      return  <RadioGroup
+                name="setRatioType"
+                onClickRadioButton={setSelectedRadioValue}
+                selectedValue={selectedRadioValue}>
+                <Radio style={{ margin: "16px" }} value="primary" labelText="Primary"/>
+                <Radio style={{ margin: "16px" }} value="primary-disabled" labelText="Disabled" disabled/>
+                <Radio style={{ margin: "16px" }} type="secondary" value="secondary" labelText="Secondary" />
+                <Radio style={{ margin: "16px" }} type="orange" value="orange" labelText="Orange" />
+                <Radio style={{ margin: "16px" }} type="light" value="light" labelText="Light" />
+                <Radio style={{ margin: "16px" }} type="light-secondary" value="light-secondary" labelText="Light Secondary" />
+              </RadioGroup>
+
+    }}
+  </Story>
+</Preview>
+
