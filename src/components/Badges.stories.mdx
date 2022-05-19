@@ -1,0 +1,48 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs";
+// import { action } from "@storybook/addon-actions";
+import { BADGE_TYPES, Badge } from "./Badges";
+
+<Meta title="Components" component={Badge} />
+
+export const Template = ({ paramType, ...rest }) => {
+  return <Badge type={paramType} {...rest}> Label </Badge>;
+}
+
+# Badges
+
+Badges are used to display important label within an application.
+
+## Usage
+
+Badges are used to display important label within an application.
+
+<Preview withToolbar>
+  <Story 
+    name="Badges"
+    argTypes={{
+      paramType: {
+        options: [
+          'default',
+          'primary',
+          'secondary',
+          'orange',
+          'purple',
+          'red',
+          'green',
+
+          'default-light',
+          'primary-light',
+          'secondary-light',
+          'orange-light',
+          'purple-light',
+          'red-light',
+          'green-light',
+        ],
+        defaultValue: 'default',
+        control: { type: 'radio' },
+      },
+    }}>
+    {Template.bind({})}
+  </Story>
+</Preview>
+
