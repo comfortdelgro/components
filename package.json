@@ -86,11 +86,14 @@
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
     "cross-env": "^7.0.3",
-    "eslint-plugin-baseui": "^11.0.2",
+    "eslint-plugin-baseui": "^11.0.3",
     "webpack": "^5.72.0"
   },
   "main": "/dist/index.js",
-  "files": [ "dist", "README.md" ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/comfortdelgro/components"
