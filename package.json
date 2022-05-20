@@ -1,28 +1,23 @@
 {
   "name": "@comfortdelgro/design-system",
   "description": "Comfort Delgro's design system",
-  "version": "0.2.1-beta",
+  "version": "0.4.1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
-    "baseui": "^11.0.2",
     "polished": "^4.2.2",
+    "web-vitals": "^2.1.4"
+  },
+  "peerDependencies": {
+    "baseui": "^11.0.2",
     "react": "^17.0.2 || ^18.1.0",
     "react-dom": "^17.0.2 || ^18.1.0",
     "react-scripts": "5.0.1",
     "styled-components": "^4.4.1",
     "styled-components-modifiers": "^1.2.5",
     "styletron-engine-atomic": "^1.4.8",
-    "styletron-react": "^6.0.2",
-    "web-vitals": "^2.1.4"
-  },
-  "peerDependencies": {
-    "react": "^17.0.2 || ^18.1.0",
-    "react-dom": "^17.0.2 || ^18.1.0",
-    "react-scripts": "5.0.1",
-    "styled-components": "^4.4.1",
-    "styled-components-modifiers": "^1.2.5"
+    "styletron-react": "^6.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -89,7 +84,7 @@
     "eslint-plugin-baseui": "^11.0.3",
     "webpack": "^5.72.0"
   },
-  "main": "/dist/index.js",
+  "main": "/dist/register.js",
   "files": [
     "dist",
     "README.md"
