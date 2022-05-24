@@ -1,28 +1,23 @@
 {
   "name": "@comfortdelgro/design-system",
   "description": "Comfort Delgro's design system",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
-    "baseui": "^11.0.2",
     "polished": "^4.2.2",
+    "web-vitals": "^2.1.4"
+  },
+  "peerDependencies": {
+    "baseui": "^11.0.2",
     "react": "^17.0.2 || ^18.1.0",
     "react-dom": "^17.0.2 || ^18.1.0",
     "react-scripts": "5.0.1",
     "styled-components": "^4.4.1",
     "styled-components-modifiers": "^1.2.5",
     "styletron-engine-atomic": "^1.4.8",
-    "styletron-react": "^6.0.2",
-    "web-vitals": "^2.1.4"
-  },
-  "peerDependencies": {
-    "react": "^17.0.2 || ^18.1.0",
-    "react-dom": "^17.0.2 || ^18.1.0",
-    "react-scripts": "5.0.1",
-    "styled-components": "^4.4.1",
-    "styled-components-modifiers": "^1.2.5"
+    "styletron-react": "^6.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -86,11 +81,14 @@
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
     "cross-env": "^7.0.3",
-    "eslint-plugin-baseui": "^11.0.2",
+    "eslint-plugin-baseui": "^11.0.3",
     "webpack": "^5.72.0"
   },
-  "main": "/dist/index.js",
-  "files": [ "dist", "README.md" ],
+  "main": "/dist/register.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/comfortdelgro/components"
