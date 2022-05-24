@@ -7,14 +7,14 @@ npm i @comfortdelgro/design-sytem
 
 ### Usage
 ```
-import { ThemeProvider } from "styled-components";
-import { defaultTheme, Button, RadioGroup, Radio, Badge } from "@comfortdelgro/design-system";
+import { defaultTheme, Theme, Button, RadioGroup, Radio, Badge } from "@comfortdelgro/design-system";
 
 function App() {
   const [selectedRadioValue, setSelectedRadioValue] = useState("");
+  const [checkBoxChecked, setCheckBoxChecked] = useState(false); // use diff state for each checkbox
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <Theme theme={defaultTheme}>
       <Button
       style={{ margin: "16px" }}
       onClick={() => alert("Clicked!")}
@@ -54,7 +54,16 @@ function App() {
       <Badge style={{ margin: "16px" }} type="red-light"> Label </Badge>
       <Badge style={{ margin: "16px" }} type="green-light"> Label </Badge>
 
-    </ThemeProvider>
+      <br/>
+
+      <CheckBox style={{ margin: "16px" }} checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Primary CheckBox</CheckBox>
+      <CheckBox style={{ margin: "16px" }} type="secondary" checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Secondary CheckBox</CheckBox>
+      <CheckBox style={{ margin: "16px" }} type="orange" checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Orange CheckBox</CheckBox>
+      <CheckBox style={{ margin: "16px" }} type="light" checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Light CheckBox</CheckBox>
+      <CheckBox style={{ margin: "16px" }} type="light-secondary" checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Light Secondary CheckBox</CheckBox>
+      <CheckBox style={{ margin: "16px" }} checked={checkBoxChecked} onChecked={setCheckBoxChecked} disabled>Disabled CheckBox</CheckBox>
+
+    </Theme>
   );
 }
 
