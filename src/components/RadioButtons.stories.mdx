@@ -1,8 +1,9 @@
 import { Meta, Story, Preview, Canvas } from "@storybook/addon-docs";
 import { action } from "@storybook/addon-actions";
 import { RADIO_BUTTON_TYPES, RadioGroup, Radio } from "./RadioButtons";
+import { useState } from "react";
 
-<Meta title="Components" component={Radio} />
+<Meta title="Components/Radios" component={Radio} />
 
 # Radio Buttons
 
@@ -12,31 +13,48 @@ Radio buttons are used to select options within an application.
 
 Radio buttons are used to select options within an application.
 
-<Canvas withToolbar>
+<Preview withToolbar>
   <Story 
-    name="Radio Buttons"
+    name="Radios"
     argTypes={{
       type: {
-        options: [Object.values(RADIO_BUTTON_TYPES)],
-        defaultValue: RADIO_BUTTON_TYPES.PRIMARY,
+        options: Object.values(RADIO_BUTTON_TYPES),
         control: { type: 'radio' },
       },
+      disabled: {
+        control: { type: 'boolean' },
+      },
+      labelText: {
+        control: { type: 'text' },
+      },
+      size: {
+        control: { type: 'number' },
+        defaultValue: 24,
+      },
+      value: {
+        control: { disable: true }
+      },
+    }}
+    args={{
+      type: RADIO_BUTTON_TYPES.PRIMARY,
+      labelText: "This is a radio button",
+      size: 24,
+      disabled: false,
     }}>
-    {() => {
+    {({ type, labelText, size, disabled }) => {
       const [selectedRadioValue, setSelectedRadioValue] = useState("");
-    
-      return  <RadioGroup
-                name="setRatioType"
-                onClickRadioButton={setSelectedRadioValue}
-                selectedValue={selectedRadioValue}>
-                <Radio style={{ margin: "16px" }} value="primary" labelText="Primary"/>
-                <Radio style={{ margin: "16px" }} value="primary-disabled" labelText="Disabled" disabled/>
-                <Radio style={{ margin: "16px" }} type="secondary" value="secondary" labelText="Secondary" />
-                <Radio style={{ margin: "16px" }} type="orange" value="orange" labelText="Orange" />
-                <Radio style={{ margin: "16px" }} type="light" value="light" labelText="Light" />
-                <Radio style={{ margin: "16px" }} type="light-secondary" value="light-secondary" labelText="Light Secondary" />
-              </RadioGroup>
-
+      const radioChangeHandler = (value) => {
+        setSelectedRadioValue(value);
+        console.debug('Radioed', value);
+      }
+      return  (
+        <RadioGroup
+          onClickRadioButton={radioChangeHandler}
+          selectedValue={selectedRadioValue}>
+          <Radio style={{ margin: "16px" }} type={type} value="0" labelText={labelText} size={`${size}px`} disabled={disabled}/>
+          <Radio style={{ margin: "16px" }} type={type} value="1" labelText={labelText} size={`${size}px`} disabled={disabled}/>
+        </RadioGroup>
+      )
     }}
   </Story>
 </Preview>
