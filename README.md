@@ -1,8 +1,8 @@
-# Getting Started with Zig Components
+# Getting Started with ComfrotDelGro's Design System
 
 ## Installation
 ```
-npm i @comfortdelgro/design-sytem
+npm i @comfortdelgro/design-system
 ```
 
 ### Usage
