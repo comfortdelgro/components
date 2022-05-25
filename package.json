@@ -1,7 +1,7 @@
 {
   "name": "@comfortdelgro/design-system",
   "description": "Comfort Delgro's design system",
-  "version": "0.4.1",
+  "version": "0.5.1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -13,7 +13,7 @@
     "baseui": "^11.0.2",
     "react": "^17.0.2 || ^18.1.0",
     "react-dom": "^17.0.2 || ^18.1.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "styled-components": "^4.4.1",
     "styled-components-modifiers": "^1.2.5",
     "styletron-engine-atomic": "^1.4.8",
@@ -24,10 +24,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sb": "start-storybook --docs -p 6006",
+    "sb": "start-storybook -p 6006",
     "build-sb": "build-storybook -s public",
     "clean": "rm -rf dist",
-    "prepublish": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
+    "prepublish": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --ignore __tests__,spec.js,test.js,stories.mdx,stories.js,__snapshots__"
   },
   "eslintConfig": {
     "extends": [
@@ -69,7 +69,6 @@
     "@babel/cli": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
-    "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-contexts": "^5.3.21",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
@@ -80,8 +79,16 @@
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
+    "baseui": "^11.0.2",
     "cross-env": "^7.0.3",
     "eslint-plugin-baseui": "^11.0.3",
+    "react": "^17.0.2 || ^18.1.0",
+    "react-dom": "^17.0.2 || ^18.1.0",
+    "react-scripts": "^5.0.1",
+    "styled-components": "^4.4.1",
+    "styled-components-modifiers": "^1.2.5",
+    "styletron-engine-atomic": "^1.4.8",
+    "styletron-react": "^6.0.2",
     "webpack": "^5.72.0"
   },
   "main": "/dist/register.js",
