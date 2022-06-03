@@ -1,28 +1,11 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs";
 import { action } from "@storybook/addon-actions";
-import { Button } from "./Buttons";
+import { Button, BUTTON_TYPES, BUTTON_SIZES } from "./Buttons";
 
 <Meta title="Components/Buttons" component={Button} />
 
-export const argsMap = {
-  'Small': 'small',
-  'Large': 'large',
-  'Primary': 'primary',
-  'Secondary': 'secondary',
-  'Orange': 'orange',
-  'Light': 'light',
-  'Light Secondary': 'light-secondary',
-};
-
-export const formatModifiers = (size, variant) => {
-  return [ argsMap[size], argsMap[variant] ];
-}
-
-export const Template = ({ size, variant, ...rest }) => {
-  const modifiers = formatModifiers(size, variant);
-  // console.debug('modifiers', { modifiers, size, variant, ...rest});
-  return <Button modifiers={modifiers} {...rest}
-          onClick={action('button-click')}>This is a button</Button>;
+export const Template = (props) => {
+  return <Button {...props} onClick={action("Clicked!")}>{props.value}</Button>;
 }
 
 # Buttons
@@ -38,24 +21,21 @@ Buttons are used to trigger internal actions within your web applications.
     name="Buttons"
     argTypes={{
       size: {
-        options: [
-          'Small',
-          'Large',
-        ],
-        defaultValue: 'Large',
+        options: Object.values(BUTTON_SIZES),
         control: { type: 'radio' },
       },
-      variant: {
-        options: [
-          'Primary',
-          'Secondary',
-          'Orange',
-          'Light',
-          'Light Secondary'
-        ],
-        defaultValue: 'Primary',
+      type: {
+        options: Object.values(BUTTON_TYPES),
         control: { type: 'select' },
       },
+      value: {
+        control: { type: 'text' },
+      },
+    }}
+    args={{
+      size: BUTTON_SIZES.large,
+      type: BUTTON_TYPES.primary,
+      value: 'Call to action',
     }}>
     {Template.bind({})}
   </Story>

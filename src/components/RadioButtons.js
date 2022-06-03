@@ -107,10 +107,10 @@ const Root = styled.div`
   height: ${props => props.size};
   position: relative;
   label {
-    margin-left: calc(${props => props.size} + 5px);
+    margin-left: calc(${props => props.size} + 6px);
     white-space: nowrap;
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 14px;
     line-height: ${props => props.size};
   }
   &::before {
@@ -226,6 +226,15 @@ const Input = styled.input`
             default: return theme.primaryColors.white;
           }
         }};
+      }
+    }
+  }
+
+  &:hover {
+    & ~ ${Root} {
+      &:before {
+        border-color: ${({theme}) => theme.shades.B20}
+        background-color: ${({theme}) => theme.shades.B20}
       }
     }
   }
