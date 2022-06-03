@@ -75,7 +75,7 @@ export class Checkbox extends React.Component {
                 borderBottomColor: theme.secondaryColors.linkBlue,
                 borderLeftColor: theme.secondaryColors.linkBlue,
               },
-              ':hover': checked ? {} : {
+              ':hover': (checked || disabled) ? {} : {
                 background: theme.secondaryColors.linkBlue,
                 borderTopColor: theme.secondaryColors.linkBlue,
                 borderRightColor: theme.secondaryColors.linkBlue,
