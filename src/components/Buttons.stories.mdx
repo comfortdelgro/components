@@ -31,11 +31,15 @@ Buttons are used to trigger internal actions within your web applications.
       value: {
         control: { type: 'text' },
       },
+      disabled: {
+        control: { type: 'boolean' }
+      }
     }}
     args={{
       size: BUTTON_SIZES.large,
       type: BUTTON_TYPES.primary,
       value: 'Call to action',
+      disabled: false,
     }}>
     {Template.bind({})}
   </Story>
