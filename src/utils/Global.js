@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { primaryFont } from "./typography";
+import { primaryFontFamily } from "./typography";
 import { normalize } from "polished";
 
 export const GlobalStyle = createGlobalStyle`
@@ -17,7 +17,7 @@ html {
 body {
   margin: 0;
   padding: 65px 0 0;
-  font-family: ${primaryFont}
+  font-family: ${primaryFontFamily}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

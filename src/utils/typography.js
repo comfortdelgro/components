@@ -1,44 +1,44 @@
-export const primaryFont = "Barlow";
+export const primaryFontFamily = "Poppins";
 export const secondaryFont = "Poppins";
 
 export const headerScales = [
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "28px",
     lineHeight: "34px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 500,
     fontSize: "28px",
     lineHeight: "34px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "22px",
     lineHeight: "28px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "18px",
     lineHeight: "18px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "21px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "14px",
@@ -48,21 +48,21 @@ export const headerScales = [
 
 export const paragraphScales = [
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 500,
     fontSize: "16px",
     lineHeight: "21px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 600,
     fontSize: "16px",
     lineHeight: "21px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 500,
     fontSize: "14px",
@@ -72,28 +72,28 @@ export const paragraphScales = [
 
 export const labelScales = [
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 500,
     fontSize: "14px",
     lineHeight: "21px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 500,
     fontSize: "13px",
     lineHeight: "18px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 500,
     fontSize: "12px",
     lineHeight: "14px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 500,
     fontSize: "11px",
@@ -103,14 +103,14 @@ export const labelScales = [
 
 export const linkScales = [
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "24px",
   },
   {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "12px",
@@ -119,7 +119,7 @@ export const linkScales = [
 ];
 
 export const footNoteScales = {
-  fontFamily: primaryFont,
+  fontFamily: primaryFontFamily,
   fontStyle: "normal",
   fontWeight: 500,
   fontSize: "12px",
@@ -128,28 +128,28 @@ export const footNoteScales = {
 
 export const buttonScales = {
   primary: {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "24px",
   },
   primaryPressed: {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "24px",
   },
   secondary: {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "24px",
   },
   disabled: {
-    fontFamily: primaryFont,
+    fontFamily: primaryFontFamily,
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "16px",

@@ -1,6 +1,6 @@
 import { white, orange, red, yellow, green, blue, grey, neutral, purple } from "./colors";
 import { lightShadow } from "./shadows";
-import { primaryFont, secondaryFont } from "./typography";
+import { primaryFontFamily, secondaryFont } from "./typography";
 
 // TODO:: Refactor all colors name to uppercase? eg. CDGBLUE80, G100
 export const defaultTheme = {
@@ -10,13 +10,16 @@ export const defaultTheme = {
     B50: blue[50],
     cdgBlue40: blue[40],
     grey100: grey[100],
+    BS120: blue.shades[120],
     white,
   },
   secondaryColors: {
     secondaryButton: blue.secondaryButton,
     cdgBlue60: blue[60],
     cdgBlue20: blue[20],
+    red: red.secondary,
     orange,
+    linkBlue: blue.secondaryLinkBlue,
 
     R100: red[100],
     R500: red[500],
@@ -39,7 +42,11 @@ export const defaultTheme = {
     P400: purple[400],
     P50: purple[50],
   },
-  disabled: grey[20],
+  shades: {
+    B20: blue.shades[20],
+  },
+  disabled: grey.shades[40],
+  lightDisabled: grey[20],
   textOnDisabled: grey[60],
   outline: grey[20],
   
@@ -47,7 +54,7 @@ export const defaultTheme = {
     light: lightShadow,
   },
 
-  primaryFont,
+  primaryFontFamily,
   secondaryFont,
 };
 
