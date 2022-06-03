@@ -51,25 +51,25 @@ export const BUTTON_MODIFIERS = {
   },
   primary: ({theme}) => `
     color: ${theme.primaryColors.white};
-    background-color: ${theme.primaryColors.cdgBlue80};
+    background-color: ${theme.primaryColors.blue};
     &:active,
     &:hover {
-      background-color: ${theme.primaryColors.BS120};
+      background-color: ${theme.hoveredColors.button};
     }
   `,
   secondary: ({theme}) => `
-    color: ${theme.primaryColors.cdgBlue80};
-    background-color: ${theme.primaryColors.white};
-    border: 1px solid ${theme.primaryColors.cdgBlue80};
+    color: ${theme.secondaryColors.blue};
+    background-color: ${theme.secondaryColors.white};
+    border: 1px solid ${theme.secondaryColors.blue};
     &:active,
     &:hover {
-      color: ${theme.primaryColors.BS120};
-      border-color: ${theme.primaryColors.BS120};
+      color: ${theme.hoveredColors.button};
+      border-color: ${theme.hoveredColors.button};
     }
   `,
   negative: ({theme}) => `
     color: ${theme.secondaryColors.red};
-    background-color: ${theme.primaryColors.white};
+    background-color: ${theme.secondaryColors.white};
     border: 1px solid ${theme.secondaryColors.red};
   `,
 };
@@ -81,7 +81,6 @@ export const Button = styled.button`
   cursor: pointer;
   ${buttonScales.primary};
   transition: background-color 0.2s linear, color 0.2s linear;
-  color: ${props => props.theme.primaryColors.grey100};
   border: unset;
 
   // Rendering button styles by props
@@ -92,8 +91,8 @@ export const Button = styled.button`
   }
 
   &:disabled {
-    background-color: ${props => props.theme.lightDisabled};
-    color: ${props => props.theme.textOnDisabled};
+    background-color: ${props => props.theme.disabledColors.button};
+    color: ${props => props.theme.disabledColors.text};
     cursor: not-allowed;
   }
 `;
