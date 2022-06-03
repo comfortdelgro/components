@@ -7,11 +7,11 @@ npm i @comfortdelgro/design-system
 
 ### Usage
 ```
-import { defaultTheme, Theme, Button, RadioGroup, Radio, Badge } from "@comfortdelgro/design-system";
+import { defaultTheme, Theme, Button, RadioGroup, Radio, Badge, Checkbox } from "@comfortdelgro/design-system";
 
 function App() {
   const [selectedRadioValue, setSelectedRadioValue] = useState("");
-  const [checkBoxChecked, setCheckBoxChecked] = useState(false); // use diff state for each checkbox
+  const [checkboxChecked, setCheckboxChecked] = useState(false); // use diff state for each checkbox
 
   return (
     <Theme theme={defaultTheme}>
@@ -56,12 +56,12 @@ function App() {
 
       <br/>
 
-      <CheckBox style={{ margin: "16px" }} checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Primary CheckBox</CheckBox>
-      <CheckBox style={{ margin: "16px" }} type="secondary" checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Secondary CheckBox</CheckBox>
-      <CheckBox style={{ margin: "16px" }} type="orange" checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Orange CheckBox</CheckBox>
-      <CheckBox style={{ margin: "16px" }} type="light" checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Light CheckBox</CheckBox>
-      <CheckBox style={{ margin: "16px" }} type="light-secondary" checked={checkBoxChecked} onChecked={setCheckBoxChecked}>Light Secondary CheckBox</CheckBox>
-      <CheckBox style={{ margin: "16px" }} checked={checkBoxChecked} onChecked={setCheckBoxChecked} disabled>Disabled CheckBox</CheckBox>
+      <Checkbox style={{ margin: "16px" }} checked={checkboxChecked} onChecked={setCheckboxChecked}>Primary Checkbox</Checkbox>
+      <Checkbox style={{ margin: "16px" }} type="secondary" checked={checkboxChecked} onChecked={setCheckboxChecked}>Secondary Checkbox</Checkbox>
+      <Checkbox style={{ margin: "16px" }} type="orange" checked={checkboxChecked} onChecked={setCheckboxChecked}>Orange Checkbox</Checkbox>
+      <Checkbox style={{ margin: "16px" }} type="light" checked={checkboxChecked} onChecked={setCheckboxChecked}>Light Checkbox</Checkbox>
+      <Checkbox style={{ margin: "16px" }} type="light-secondary" checked={checkboxChecked} onChecked={setCheckboxChecked}>Light Secondary Checkbox</Checkbox>
+      <Checkbox style={{ margin: "16px" }} checked={checkboxChecked} onChecked={setCheckboxChecked} disabled>Disabled Checkbox</Checkbox>
 
     </Theme>
   );
