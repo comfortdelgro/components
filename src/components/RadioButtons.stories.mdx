@@ -44,8 +44,8 @@ Radio buttons are used to select options within an application.
     {({ type, labelText, size, disabled }) => {
       const [selectedRadioValue, setSelectedRadioValue] = useState("");
       const radioChangeHandler = (value) => {
+        action('Changed!');
         setSelectedRadioValue(value);
-        console.debug('Radioed', value);
       }
       return  (
         <RadioGroup
