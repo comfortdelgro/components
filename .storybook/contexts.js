@@ -1,11 +1,11 @@
-import { ThemeProvider } from "styled-components";
+import Theme from "../src/Theme";
 import { defaultTheme } from "../src/utils";
 
 export const contexts = [
   {
     icon: "box", // a icon displayed in the Storybook toolbar to control contextual props
     title: "Themes", // an unique name of a contextual environment
-    components: [ThemeProvider],
+    components: [Theme],
     params: [
       // an array of params contains a set of predefined `props` for `components`
       { name: "Default Theme", props: { theme: defaultTheme, default: true } },
