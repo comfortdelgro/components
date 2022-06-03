@@ -4,8 +4,8 @@ import { Badge } from "./Badges";
 
 <Meta title="Components/Badges" component={Badge} />
 
-export const Template = ({ paramType, ...rest }) => {
-  return <Badge type={paramType} {...rest}> Label </Badge>;
+export const Template = ({ type, label, ...rest }) => {
+  return <Badge type={type} {...rest}>{label}</Badge>;
 }
 
 # Badges
@@ -20,7 +20,7 @@ Badges are used to display important label within an application.
   <Story 
     name="Badges"
     argTypes={{
-      paramType: {
+      type: {
         options: [
           'default',
           'primary',
@@ -40,6 +40,10 @@ Badges are used to display important label within an application.
         defaultValue: 'default',
         control: { type: 'select' },
       },
+      label: {
+        defaultValue: 'Bagde',
+        control: { type: 'text' },
+      }
     }}>
     {Template.bind({})}
   </Story>

@@ -1,0 +1,52 @@
+import { Meta, Story, Preview, Canvas } from "@storybook/addon-docs";
+import { action } from "@storybook/addon-actions";
+import { Checkbox, CHECK_BOX_TYPES } from "./Checkboxes";
+import { useState } from "react";
+
+<Meta title="Components/Checkboxes" component={Checkbox} />
+
+# Radio Buttons
+
+Radio buttons are used to select options within an application.
+
+## Usage
+
+Radio buttons are used to select options within an application.
+
+<Preview withToolbar>
+  <Story 
+    name="Checkboxes"
+    argTypes={{
+      type: {
+        options: Object.values(CHECK_BOX_TYPES),
+        control: { type: 'radio' },
+      },
+      disabled: {
+        control: { type: 'boolean' },
+      },
+      labelText: {
+        control: { type: 'text' },
+      },
+    }}
+    args={{
+      type: CHECK_BOX_TYPES.PRIMARY,
+      labelText: "This is a radio button",
+      size: 24,
+      disabled: false,
+    }}>
+    {({ type, labelText, size, disabled }) => {
+      const [checked, setChecked] = useState(false);
+      const checkHandler = (value) => {
+        setChecked(value);
+        action(value ? 'Checked!' : 'Unchecked!');
+      }
+      return  (
+        <Checkbox
+          style={{ margin: "16px" }} 
+          checked={checked}
+          onChecked={checkHandler}>{labelText}</Checkbox>
+      )
+    }}
+  </Story>
+</Preview>
+

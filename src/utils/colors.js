@@ -11,9 +11,15 @@ export const blue = {
   40: "#008BF8",
   20: "#7BD7FF",
   10: "#D2E2F1",
+
+  shades: {
+    120: "#012158",
+    20: "#CCD9EF",
+  },
   
   link: "#0275D8",
   secondaryButton: "#DEE8F9",
+  secondaryLinkBlue: "#009EDA",
 };
 
 export const grey = {
@@ -23,6 +29,10 @@ export const grey = {
   40: "#D7D8D6",
   20: "#E6E6E6",
   10: "#F7F8F9",
+
+  shades: {
+    40: "#B4B4B4",
+  },
 };
 
 export const neutral = {
@@ -42,6 +52,8 @@ export const red = {
   400: "#DE350B",
   100: "#A8000B",
   50: "#FFEBE6",
+
+  secondary: "#E31617"
 };
 
 export const green = {
