@@ -1,4 +1,4 @@
-import { orange, red, yellow, green, blue, grey, neutral, purple } from "./colors";
+import { orange, red, yellow, green, blue, grey } from "./colors";
 import { lightShadow } from "./shadows";
 import { primaryFontFamily, secondaryFont } from "./typography";
 
@@ -17,6 +17,9 @@ export const defaultTheme = {
     white: grey[0],
 
     linkBlue: blue.secondaryLinkBlue,
+    text: grey[100],
+    label: grey[80],
+    helper: grey[60],
   },
   hoveredColors: {
     button: blue[120],
@@ -25,9 +28,13 @@ export const defaultTheme = {
   disabledColors: {
     text: grey[60],
     control: grey.disabled[40],
+    helper: grey.disabled[40],
     button: grey[20],
+    inputBg: grey[10],
   },
+  placeholderColor: grey[40],
   outline: grey[20],
+  outline10: grey[10],
   
   shadows: {
     light: lightShadow,
