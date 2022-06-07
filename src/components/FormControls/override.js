@@ -1,16 +1,21 @@
+import { resolveComponent, resolveProps, resolveStyle } from "../override";
+
 const override = ({ Label, Caption }) => ({
-  Label: Label || {
-    style: ({ $theme }) => ({
+  Label: {
+    style: (props) => ({
       fontStyle: "normal",
       fontWeight: "600",
       fontSize: "12px",
       lineHeight: "125%",
       marginBottom: "-4px",
-      color: $theme.secondaryColors.label,
+      color: props.$theme.secondaryColors.label,
+      ...resolveStyle(Label, props),
     }),
+    props: resolveProps({}, Label),
+    ...resolveComponent(Label),
   },
-  Caption: Caption || {
-    style: ({ $theme, $disabled, $error }) => ({
+  Caption: {
+    style: ({ $theme, $disabled, $error, ...restProps }) => ({
       fontStyle: "normal",
       fontWeight: "500",
       fontSize: "12px",
@@ -19,7 +24,10 @@ const override = ({ Label, Caption }) => ({
       color: $disabled 
               ? $theme.disabledColors.helper
               : ( $error ? $theme.secondaryColors.red : $theme.secondaryColors.helper),
+      ...resolveStyle(Label, { $theme, $disabled, $error, ...restProps }),
     }),
+    props: resolveProps({}, Caption),
+    ...resolveComponent(Caption),
   },
 });
 export default override;
