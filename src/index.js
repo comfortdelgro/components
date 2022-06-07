@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Badge, Button, Checkbox, RadioGroup, Radio } from "./components";
+import { Button, Checkbox, RadioGroup, Radio } from "./components";
+import { defaultTheme } from './utils';
 import Theme from "./Theme";
 
 const App = () => {
@@ -8,7 +9,7 @@ const App = () => {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
 
   return (
-    <Theme>
+    <Theme theme={defaultTheme}>
       <Button
         style={{ margin: "16px" }}
         onClick={() => alert("Clicked!")}>
