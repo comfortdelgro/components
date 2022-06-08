@@ -42,6 +42,22 @@ export const defaultTheme = {
 
   primaryFontFamily,
   secondaryFont,
+
+  // base web overrides
+  colors: {
+    borderSelected: blue[100],
+
+    inputBorder: grey[10],
+    inputBorderError: red[60],
+    inputFill: grey[0],
+    inputFillActive: grey[0],
+    inputFillError: grey[0],
+    inputFillDisabled: grey[10],
+    inputText: grey[80],
+    inputTextDisabled: grey[60],
+    inputTextError: grey[100],
+    inputPlaceholder: grey[40],
+  }
 };
 
 export const darkTheme = {};
