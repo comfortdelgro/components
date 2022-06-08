@@ -1,4 +1,5 @@
 import { resolveComponent, resolveProps, resolveStyle } from "../override";
+import { margin } from "../../utils/helpers/style";
 
 const override = ({ Label, Caption }) => ({
   Label: {
@@ -20,7 +21,7 @@ const override = ({ Label, Caption }) => ({
       fontWeight: "500",
       fontSize: "12px",
       lineHeight: "18px",
-      margin: "4px 0 0 0",
+      ...margin("4px 0 0 0"),
       color: $disabled 
               ? $theme.disabledColors.helper
               : ( $error ? $theme.secondaryColors.red : $theme.secondaryColors.helper),
