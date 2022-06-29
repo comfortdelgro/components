@@ -1,0 +1,34 @@
+import { useState } from 'react';
+import { Meta, Story, Preview } from "@storybook/addon-docs";
+import { Table } from "./Tables";
+
+<Meta title="Components/Tables" component={Table} />
+
+export const Template = (props) => {
+  return (
+    <Table
+      columns={["Name", "Age", "Address"]}
+      data={[
+        [
+          "Sarah Brown",
+          31,
+          "100 Broadway St., New York City, New York"
+        ],
+        [
+          "Jane Smith",
+          32,
+          "100 Market St., San Francisco, California"
+        ]
+      ]}
+    />
+  )
+}
+
+<Canvas withToolbar>
+  <Story
+    name="Table">
+    {
+      Template.bind({})
+    }
+  </Story>
+</Canvas>

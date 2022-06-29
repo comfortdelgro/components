@@ -9,7 +9,7 @@ const override = ({ Label, Caption }) => ({
       fontSize: "12px",
       lineHeight: "125%",
       marginBottom: "-4px",
-      color: props.$theme.secondaryColors.label,
+      // color: props.$theme.secondaryColors.label,
       ...resolveStyle(Label, props),
     }),
     props: resolveProps({}, Label),
@@ -22,9 +22,9 @@ const override = ({ Label, Caption }) => ({
       fontSize: "12px",
       lineHeight: "18px",
       ...margin("4px 0 0 0"),
-      color: $disabled 
-              ? $theme.disabledColors.helper
-              : ( $error ? $theme.secondaryColors.red : $theme.secondaryColors.helper),
+      // color: $disabled 
+      //         ? $theme.disabledColors.helper
+      //         : ( $error ? $theme.secondaryColors.red : $theme.secondaryColors.helper),
       ...resolveStyle(Label, { $theme, $disabled, $error, ...restProps }),
     }),
     props: resolveProps({}, Caption),

@@ -1,0 +1,38 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs";
+import { Link } from "./Links";
+
+<Meta title="Controls/Links" component={Link} />
+
+export let isDirectlyChanged = false;
+
+export const Template = ({ label, ...props }) => {
+  console.debug('Link', Link.propTypes);
+  return (
+    <Link {...props} target="_blank">{label}</Link>
+  )
+}
+
+<Canvas withToolbar>
+  <Story
+    name="Links"
+    argTypes={{
+      href: {
+        control: { type: "text" }
+      },
+      label: {
+        control: { type: "text" }
+      },
+      isActive: {
+        control: { type: "boolean" }
+      },
+    }}
+    args={{
+      href: "https://www.w3.org/",
+      label: "Standard Link",
+      isActive: false,
+    }}>
+    {
+      Template.bind({})
+    }
+  </Story>
+</Canvas>
