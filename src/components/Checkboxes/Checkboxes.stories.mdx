@@ -17,37 +17,26 @@ Radio buttons are used to select options within an application.
   <Story 
     name="Checkboxes"
     argTypes={{
-      type: {
-        options: Object.values(CHECK_BOX_TYPES),
-        control: { type: 'radio' },
+      checked: {
+        control: { type: 'boolean' },
       },
       disabled: {
         control: { type: 'boolean' },
       },
-      labelText: {
+      label: {
         control: { type: 'text' },
       },
     }}
     args={{
-      type: CHECK_BOX_TYPES.PRIMARY,
-      labelText: "This is a radio button",
-      size: 24,
+      checked: false,
       disabled: false,
+      label: "This is a radio button",
     }}>
-    {({ type, labelText, size, disabled }) => {
-      const [checked, setChecked] = useState(false);
-      const checkHandler = (value) => {
-        setChecked(value);
-        action(value ? 'Checked!' : 'Unchecked!');
-      }
+    {(({ label, ...restProps }) => {
       return  (
-        <Checkbox
-          style={{ margin: "16px" }} 
-          checked={checked}
-          disabled={disabled}
-          onChecked={checkHandler}>{labelText}</Checkbox>
+        <Checkbox onChange={action('onChange')} {...restProps}>{ label }</Checkbox>
       )
-    }}
+    }).bind({})}
   </Story>
 </Preview>
 

@@ -1,0 +1,57 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs";
+import { action } from "@storybook/addon-actions";
+import { 
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalButton,
+} from "../Modals";
+import {
+  SIZE,
+  ROLE
+} from "baseui/modal";
+import { BUTTON_TYPES, BUTTON_SIZES } from "../Buttons";
+
+<Meta title="Popups/Modal" component={Modal} />
+
+export const Template = function({ isOpen }) {
+  return (
+    <Modal
+      onClose={action("Close")}
+      closeable
+      isOpen={isOpen}
+      animate
+      size={SIZE.default}
+      role={ROLE.dialog}
+    >
+      <ModalHeader>Hello world</ModalHeader>
+      <ModalBody>
+        Proin ut dui sed metus pharetra hend rerit vel non
+        mi. Nulla ornare faucibus ex, non facilisis nisl.
+        Maecenas aliquet mauris ut tempus.
+      </ModalBody>
+      <ModalFooter>
+        <ModalButton onClick={action("Cancel")} type={BUTTON_TYPES.tertiary} size={BUTTON_SIZES.xm}>
+          Cancel
+        </ModalButton>
+        <ModalButton onClick={action("Okay")} size={BUTTON_SIZES.xm}>Okay</ModalButton>
+      </ModalFooter>
+    </Modal>
+  );
+}
+
+<Canvas withToolbar>
+  <Story
+    name="Modal"
+    argTypes={{
+      isOpen: {
+        control: { type: "boolean" }
+      },
+    }}
+    args={{
+      isOpen: true,
+    }}>
+    { Template.bind({}) }
+  </Story>
+</Canvas>

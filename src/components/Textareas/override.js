@@ -1,19 +1,11 @@
 import { resolveComponent, resolveProps, resolveStyle } from "../override";
-import { applyToAllSides, border, borderRadius, borderWithoutColors, noBorder, padding } from "../../utils/helpers/style";
+import { borderRadius, borderWithoutColors, padding } from "../../utils/helpers/style";
 
 const override = ({
-  disabled, error, isFocused,
   Root,
   Input,
   InputContainer,
 }) => {
-
-  const getInputBg = ($theme) => disabled ? $theme.disabledColors.inputBg : $theme.primaryColors.white;
-  const getBorderColor = ($theme) =>(
-    error
-      ? disabled? $theme.outline10 : $theme.secondaryColors.red
-      : isFocused ? $theme.primaryColors.blue : $theme.outline10
-  );
 
   return {
     Root: {
@@ -22,7 +14,6 @@ const override = ({
         return {
           ...borderWithoutColors(`${borderWidth}px solid`),
           ...borderRadius("8px"),
-          // backgroundColor: "unset !important",
           ...resolveStyle(Root, props),
         }
       },
@@ -31,19 +22,14 @@ const override = ({
     },
     Input: {
       style: (props) => {
-        const bgColor = getInputBg(props.$theme);
+        console.log('inputText', props.$theme.colors.inputText);
         return {
           ...padding("12px 16px 12px 16px"),
-          // backgroundColor: bgColor,
-          // ...noBorder(),
           fontStyle: "normal",
           fontWeight: "400",
           fontSize: "14px",
           lineHeight: "20px",
-          color: props.$theme.colors.inputText,
-          // '::placeholder': {
-          //   color: props.$theme.placeholderColor,
-          // },
+          // color: props.$theme.colors.inputText,
           ...resolveStyle(Input, props),
         }
       },
@@ -53,8 +39,6 @@ const override = ({
     InputContainer: {
       style: (props) => ({
         height: "131px",
-        // ...noBorder(),
-        // backgroundColor: "unset !important",
         ...resolveStyle(InputContainer, props),
       }),
       props: resolveProps({}, InputContainer),

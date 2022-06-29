@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 // TODO: refactor default props declaration
  
@@ -109,6 +109,19 @@ const Root = styled.div`
     font-size: 14px;
     line-height: ${props => props.size};
   }
+
+  ${({checked, theme}) => {
+    if (!checked) {
+      return css`
+        &:hover {
+          &::before {
+            border-color: ${theme.colors.radioButtonBorderHovered};
+            background: ${theme.colors.radioButtonFillHovered};
+          }
+        }
+      `;
+    }
+  }}
   &::before {
     content: "";
     border-radius: 100%;
@@ -120,30 +133,30 @@ const Root = styled.div`
     pointer-events: none;
     z-index: 0;
     // Solving Modifiers
-    ${({ checked, disabled, borderColor, type, backgroundColor, theme }) => {
-      const borderStyle = `2px solid ${(borderColor ? borderColor : theme.outline)}`;
-      let style = '';
-      if (checked || disabled) {
-        const bgColor = disabled ? theme.disabledColors.control : theme.primaryColors.blue;
-        const hasBorder = type === RADIO_BUTTON_TYPES.LIGHT; 
-
-        style += `
-          border: ${ hasBorder ? borderStyle : 'unset' };
-          background: ${backgroundColor ? backgroundColor : bgColor}
+    ${({ checked, disabled, theme }) => {
+      const borderStyle = `2px solid`;
+      if (disabled) {
+        return `
+          border: ${borderStyle} ${theme.colors.radioButtonBorderDisabled};
+          background: ${theme.colors.radioButtonFillDisabled}
+        `;
+      } else if (checked) {
+        return `
+          border: ${borderStyle} ${theme.colors.radioButtonBorderSelected};
+          background: ${theme.colors.radioButtonFillSelected};
         `;
       } else {
-        style += `
-          border: ${ disabled ? `unset` : borderStyle };
-          background: ${backgroundColor ? backgroundColor : theme.primaryColors.white};
+        return `
+          border: ${borderStyle} ${theme.colors.radioButtonBorder};
+          background: ${theme.colors.radioButtonFill};
         `;
       }
-      return style;
     }}
   }
 `;
 
 const Fill = styled.div`
-  background: ${props => (props.fillColor ? props.fillColor : props.theme.primaryColors.white)};
+  background: ${({theme}) => theme.colors.radioButtonMarkFill};
   width: 0;
   height: 0;
   border-radius: 100%;
@@ -188,23 +201,6 @@ const Input = styled.input`
       width: calc(100% - 58%);
       height: calc(100% - 58%);
       transition: width 0.2s ease-out, height 0.2s ease-out;
-
-      &::before {
-        opacity: 1;
-        transition: opacity 1s ease;
-        background: ${ 
-          ({ theme, disabled }) => disabled ? theme.disabledColors.text : theme.primaryColors.white
-        };
-      }
-    }
-  }
-
-  &:hover {
-    & ~ ${Root} {
-      &:before {
-        border-color: ${({theme}) => theme.hoveredColors.control}
-        background-color: ${({theme}) => theme.hoveredColors.control}
-      }
     }
   }
 `;
