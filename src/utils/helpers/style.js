@@ -85,6 +85,10 @@ export function borderWithoutColors(value) {
   }
 }
 
+export function borderColors(value) {
+  return applyToAllSides("border", "Color", value);
+}
+
 export function borderRadius(value) {
   return applyToAllCorners("border", "Radius", value);
 }
