@@ -7,8 +7,7 @@ import {Client as Styletron} from 'styletron-engine-atomic';
 import {Provider as StyletronProvider} from 'styletron-react';
 import {BaseProvider, createTheme} from 'baseui';
 
-const Theme = ({ theme, children }) => {
-  const engine = new Styletron();
+const Theme = ({ theme, engine, children }) => {
   const customizedTheme = createTheme(theme.primitives, theme.overrides);
   return (
     <ThemeProvider theme={customizedTheme}>
@@ -24,6 +23,7 @@ const Theme = ({ theme, children }) => {
 
 Theme.propTypes = {
   theme: PropTypes.object.isRequired,
+  engine: PropTypes.object.isRequired,
   children: PropTypes.any,
 };
 
