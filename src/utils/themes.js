@@ -5,7 +5,8 @@ import {
   headerScales,
   contentScales,
   tableScales,
-  formControlScales
+  formControlScales,
+  navBarScales
 } from "./typography";
 
 export const defaultTheme = {
@@ -59,6 +60,7 @@ export const defaultTheme = {
       inputText: colors.shades.grey100,
       inputTextDisabled: colors.shades.grey60,
       inputPlaceholder: colors.shades.grey40,
+      inputStartEnhancer: colors.secondary.linkBlue,
 
       linkText: colors.shades.grey60,
       linkHover: colors.shades.cdgBlue80,
@@ -93,6 +95,7 @@ export const defaultTheme = {
       ...contentScales,
       ...tableScales,
       ...formControlScales,
+      ...navBarScales,
     },
 
     sizing,
