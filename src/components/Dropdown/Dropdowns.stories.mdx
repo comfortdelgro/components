@@ -1,0 +1,33 @@
+import { useState } from 'react';
+import { Meta, Story, Preview } from "@storybook/addon-docs";
+import { Dropdown } from "./Dropdowns";
+
+<Meta title="Components/Dropdowns" component={Dropdown} />
+
+export const Template = (props) => {
+  const [value, setValue] = React.useState([]);
+  return (
+    <Dropdown
+      options={[
+        { label: "AliceBlue", id: "#F0F8FF" },
+        { label: "AntiqueWhite", id: "#FAEBD7" },
+        { label: "Aqua", id: "#00FFFF" },
+        { label: "Aquamarine", id: "#7FFFD4" },
+        { label: "Azure", id: "#F0FFFF" },
+        { label: "Beige", id: "#F5F5DC" }
+      ]}
+      value={value}
+      placeholder="Select color"
+      onChange={params => setValue(params.value)}
+    />
+  )
+}
+
+<Canvas withToolbar>
+  <Story
+    name="Dropdown">
+    {
+      Template.bind({})
+    }
+  </Story>
+</Canvas>
