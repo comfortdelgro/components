@@ -1,8 +1,7 @@
 import { resolveComponent, resolveProps, resolveStyle } from "../override";
-import { borderWithoutColors, borderRadius } from "../../utils/helpers/style";
+import { borderWithoutColors, borderRadius, padding, noPadding } from "../../utils/helpers/style";
 
 const override = ({
-  disabled, error, isFocused,
   Root,
   Input,
   InputContainer,
@@ -28,18 +27,13 @@ const override = ({
       ...resolveComponent(Root),
     },
     InputContainer: {
-      style: (props) => ({
-        border: "unset !important",
-        background: 'transparent !important',
-        ...resolveStyle(InputContainer, props),
-      }),
+      style: (props) => resolveStyle(InputContainer, props),
       props: resolveProps({}, InputContainer),
       ...resolveComponent(InputContainer),
     },
     Input: {
       style: (props) => ({
-        border: "unset !important",
-        padding: "13px 16px",
+        ...padding("13px 16px 13px 16px"),
         color: props.$theme.colors.inputText,
         ...props.$theme.typography.input,
         ...resolveStyle(Input, props),
@@ -88,7 +82,10 @@ const override = ({
       ...resolveComponent(MaskToggleShowIcon),
     },
     StartEnhancer: {
-      style: (props) => resolveStyle(StartEnhancer, props),
+      style: (props) => ({
+        ...noPadding(),
+        ...resolveStyle(StartEnhancer, props),
+      }),
       props: resolveProps({}, StartEnhancer),
       ...resolveComponent(StartEnhancer),
     },

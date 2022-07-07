@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Meta, Story, Preview } from "@storybook/addon-docs";
 import { FormControl } from "../FormControls";
 import { Input } from "./Inputs";
+import { Search } from "baseui/icon";
 
 <Meta title="Form Controls/Inputs" component={FormControl} />
 
@@ -17,7 +18,13 @@ export const Template = ({ label, caption, disabled, error, value, ...inputArgs 
   isDirectlyChanged = false;
   return (
     <FormControl label={label} caption={caption} disabled={disabled} error={error}>
-      <Input value={localValue} disabled={disabled} error={error} onChange={handleOnChange} {...inputArgs}/>
+      <Input
+        startEnhancer={Search}
+        value={localValue}
+        disabled={disabled}
+        error={error}
+        onChange={handleOnChange}
+        {...inputArgs}/>
     </FormControl>
   )
 }
