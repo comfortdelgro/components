@@ -1,5 +1,6 @@
 export const primaryFontFamily = "Poppins";
 
+//TODO:: try to merge and reduce scales
 export const headerScales = {
   h1: {
     fontStyle: "normal",
@@ -79,106 +80,17 @@ export const formControlScales = {
   }
 }
 
-export const paragraphScales = [
-  {
-    fontFamily: primaryFontFamily,
+export const navBarScales = {
+  appName: {
     fontStyle: "normal",
-    fontWeight: 500,
-    fontSize: "16px",
-    lineHeight: "21px",
+    fontWeight: "700 !important", // to overpower bui override
+    fontSize: "20px",
+    lineHeight: "30px",
   },
-  {
-    fontFamily: primaryFontFamily,
+  navMenuItem: {
     fontStyle: "normal",
-    fontWeight: 600,
-    fontSize: "16px",
-    lineHeight: "21px",
-  },
-  {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 500,
-    fontSize: "14px",
-    lineHeight: "18px",
-  },
-];
-
-export const labelScales = [
-  {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 500,
-    fontSize: "14px",
-    lineHeight: "21px",
-  },
-  {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 500,
-    fontSize: "13px",
-    lineHeight: "18px",
-  },
-  {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 500,
-    fontSize: "12px",
-    lineHeight: "14px",
-  },
-  {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 500,
-    fontSize: "11px",
-    lineHeight: "13px",
-  },
-];
-
-export const linkScales = [
-  {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 700,
+    fontWeight: "700", // to overpower bui override
     fontSize: "16px",
     lineHeight: "24px",
   },
-  {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 700,
-    fontSize: "12px",
-    lineHeight: "18px",
-  },
-];
-
-export const footNoteScales = {
-  fontFamily: primaryFontFamily,
-  fontStyle: "normal",
-  fontWeight: 500,
-  fontSize: "12px",
-  lineHeight: "18px",
-};
-
-export const buttonScales = {
-  large: {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 700,
-    fontSize: "16px",
-    lineHeight: "24px",
-  },
-  sm: {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 700,
-    fontSize: "12px",
-    lineHeight: "18px",
-  },
-  xm: {
-    fontFamily: primaryFontFamily,
-    fontStyle: "normal",
-    fontWeight: 400,
-    fontSize: "14px",
-    lineHeight: "125%",
-  },
-};
+}
