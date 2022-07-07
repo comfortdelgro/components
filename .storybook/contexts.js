@@ -1,5 +1,6 @@
 import Theme from "../src/Theme";
 import { defaultTheme } from "../src/utils";
+import {Client as Styletron} from 'styletron-engine-atomic';
 
 export const contexts = [
   {
@@ -8,7 +9,7 @@ export const contexts = [
     components: [Theme],
     params: [
       // an array of params contains a set of predefined `props` for `components`
-      { name: "Default Theme", props: { theme: defaultTheme, default: true } },
+      { name: "Default Theme", props: { theme: defaultTheme, engine: new Styletron() } },
       // { name: "Dark Theme", props: { theme: darkTheme } }
     ],
     options: {
