@@ -1,0 +1,70 @@
+import { useState } from 'react';
+import { Meta, Story, Preview } from "@storybook/addon-docs";
+import { action } from "@storybook/addon-actions";
+import {
+  AppNavBar,
+  setItemActive
+} from "./AppNavBar";
+import {
+  ChevronDown as BuiChevronDown,
+  Delete,
+  Overflow,
+  Upload
+} from "baseui/icon";
+
+<Meta title="Components/AppNavbar" component={AppNavBar} />
+
+export const ChevronDown = () => {
+  return <BuiChevronDown color="white"/>;
+};
+
+export const Template = ({ ...restProps }) => {
+  const [mainItems, setMainItems] = React.useState([
+    { icon: Upload, label: "Main A" },
+    {
+      active: true,
+      icon: ChevronDown,
+      label: "Main B",
+      navExitIcon: Delete,
+    }
+  ]);
+  return (
+    <AppNavBar
+      mainItems={mainItems}
+      onMainItemSelect={item => {
+        setMainItems(prev => setItemActive(prev, item));
+      }}
+      userItems={[
+        { icon: Overflow, label: "User A" },
+        { icon: Overflow, label: "User B" }
+      ]}
+      onUserItemSelect={action("UserItemSelect")}
+      {...restProps}
+    />
+  );
+}
+
+<Canvas withToolbar>
+  <Story
+    name="AppNavBar"
+    argTypes={{
+      title: {
+        control: { type: 'text' }
+      },
+      username: {
+        control: { type: 'text' }
+      },
+      usernameSubtitle: {
+        control: { type: 'text' }
+      },
+    }}
+    args={{
+      title: 'Navbar',
+      username: 'Phylis Yang',
+      usernameSubtitle: 'Silicon Links Inc',
+    }}>
+    {
+      Template.bind({})
+    }
+  </Story>
+</Canvas>
