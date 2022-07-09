@@ -6,7 +6,8 @@ import {
   contentScales,
   tableScales,
   formControlScales,
-  navBarScales
+  navBarScales,
+  buttonScales
 } from "./typography";
 
 export const defaultTheme = {
@@ -96,6 +97,7 @@ export const defaultTheme = {
       ...tableScales,
       ...formControlScales,
       ...navBarScales,
+      ...buttonScales,
     },
 
     sizing,

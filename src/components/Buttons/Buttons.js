@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { buttonScales } from "../../utils";
 
 export const BUTTON_TYPES = {
   primary: 'primary',
@@ -21,8 +20,8 @@ export const BUTTON_ICON_POSITIONS = {
 };
 
 export const BUTTON_MODIFIERS = {
-  large: ({ iconPosition }) => {
-    let style = `${buttonScales.large};`;
+  large: ({ iconPosition, theme }) => {
+    let style = `${theme.typography.btnLarge};`;
     switch (iconPosition) {
       case BUTTON_ICON_POSITIONS.right:
         style += 'padding: 12px 107px 12px 105px;';
@@ -36,8 +35,8 @@ export const BUTTON_MODIFIERS = {
     }
     return style;
   },
-  sm: ({ iconPosition }) => {
-    let style = `${buttonScales.sm};`;
+  sm: ({ iconPosition, theme }) => {
+    let style = `${theme.typography.btnSm};`;
     switch (iconPosition) {
       case BUTTON_ICON_POSITIONS.right:
         style += 'padding: 12px 14px 12px 20px;';
@@ -51,8 +50,8 @@ export const BUTTON_MODIFIERS = {
     }
     return style;
   },
-  xm: () => `
-    ${buttonScales.xm}
+  xm: ({ theme }) => `
+    ${theme.typography.btnXm}
     padding: 8px 14px;
   `,
   primary: ({theme}) => {

@@ -94,3 +94,27 @@ export const navBarScales = {
     lineHeight: "24px",
   },
 }
+
+export const buttonScales = {
+  btnLarge: {
+    fontFamily: primaryFontFamily,
+    fontStyle: "normal",
+    fontWeight: 700,
+    fontSize: "16px",
+    lineHeight: "24px",
+  },
+  btnSm: {
+    fontFamily: primaryFontFamily,
+    fontStyle: "normal",
+    fontWeight: 700,
+    fontSize: "12px",
+    lineHeight: "18px",
+  },
+  btnXm: {
+    fontFamily: primaryFontFamily,
+    fontStyle: "normal",
+    fontWeight: 400,
+    fontSize: "14px",
+    lineHeight: "125%",
+  },
+};
