@@ -3,14 +3,9 @@
   "description": "Comfort Delgro's design system",
   "version": "0.5.1",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^13.5.0",
     "baseui": "^11.0.2",
-    "polished": "^4.2.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-scripts": "^5.0.1",
     "styled-components": "^4.4.1",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2",
@@ -20,16 +15,11 @@
     "baseui": "^11.0.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-scripts": "^5.0.1",
     "styled-components": "^4.4.1",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "sb": "start-storybook -p 6006",
     "build-sb": "build-storybook -s public",
     "prepublish": "rm -rf dist && cross-env NODE_ENV=production babel src --out-dir dist --ignore __tests__,spec.js,test.js,stories.mdx,stories.js,__snapshots__"
