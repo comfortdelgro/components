@@ -21,103 +21,109 @@ export const BUTTON_ICON_POSITIONS = {
 
 export const BUTTON_MODIFIERS = {
   large: ({ iconPosition, theme }) => {
-    let style = `${theme.typography.btnLarge};`;
+    const style = theme.typography.btnLarge;
     switch (iconPosition) {
       case BUTTON_ICON_POSITIONS.right:
-        style += 'padding: 12px 107px 12px 105px;';
+        style.padding = "12px 107px 12px 105px";
         break;
       case BUTTON_ICON_POSITIONS.left:
-          style += 'padding: 12px 105px 12px 107px;';
-          break;
+        style.padding = "12px 105px 12px 107px";
+        break;
       default:
-        style += 'padding: 12px 117px;';
+        style.padding = "12px 117px";
         break;
     }
     return style;
   },
   sm: ({ iconPosition, theme }) => {
-    let style = `${theme.typography.btnSm};`;
+    const style = theme.typography.btnSm;
     switch (iconPosition) {
       case BUTTON_ICON_POSITIONS.right:
-        style += 'padding: 12px 14px 12px 20px;';
+        style.padding = "12px 14px 12px 20px";
         break;
       case BUTTON_ICON_POSITIONS.left:
-          style += 'padding: 12px 20px 12px 22px;';
+          style.padding = "12px 20px 12px 22px";
           break;
       default:
-        style += 'padding: 12px 20px;';
+        style.padding = "12px 20px";
         break;
     }
+    console.debug("Button Style", style);
     return style;
   },
-  xm: ({ theme }) => `
-    ${theme.typography.btnXm}
-    padding: 8px 14px;
-  `,
-  primary: ({theme}) => {
-    return `
-    color: ${theme.colors.buttonPrimaryText};
-    background-color: ${theme.colors.buttonPrimaryFill};
-    &:active,
-    &:hover {
-      background-color: ${theme.colors.buttonPrimaryHover};
-    }
-  `
+  xm: ({ theme }) => ({
+    ...theme.typography.btnXm,
+    padding: "8px 14px",
+  }),
+  primary: ({ theme }) => {
+    const activeStyle = {
+      backgroundColor: theme.colors.buttonPrimaryHover,
+    };
+    return {
+      color: theme.colors.buttonPrimaryText,
+      backgroundColor: theme.colors.buttonPrimaryFill,
+      "&:active": activeStyle,
+      "&:hover" : activeStyle,
+    };
   },
-  secondary: ({theme}) => `
-    color: ${theme.colors.buttonSecondaryText};
-    background-color: ${theme.colors.buttonSecondaryFill};
-    border: 1px solid ${theme.colors.buttonSecondaryBorder};
-    &:active,
-    &:hover {
-      color: ${theme.colors.buttonSecondaryHoverText};
-      border-color: ${theme.colors.buttonSecondaryHoverBorder};
-      background-color: ${theme.colors.buttonSecondaryHoverFill};
+  secondary: ({theme}) => {
+    const activeStyle = {
+      color: theme.colors.buttonSecondaryHoverText,
+      borderColor: theme.colors.buttonSecondaryHoverBorder,
+      backgroundColor: theme.colors.buttonSecondaryHoverFill,
+    };
+    return {
+      color: theme.colors.buttonSecondaryText,
+      backgroundColor: theme.colors.buttonSecondaryFill,
+      border: `1px solid ${theme.colors.buttonSecondaryBorder}`,
+      "&:active": activeStyle,
+      "&:hover": activeStyle, 
+    };
+  },
+  negative: ({theme}) => {
+    const activeStyle = {
+      backgroundColor: theme.colors.buttonNegativeHoverFill,
+    };
+    return {
+      color: theme.colors.buttonNegativeText,
+      backgroundColor: theme.colors.buttonNegativeFill,
+      border: `1px solid ${theme.colors.buttonNegativeBorder}`,
+      "&:active": activeStyle,
+      "&:hover": activeStyle,
+    };
+  },
+  tertiary: ({theme}) => {
+    const activeStyle = {
+      backgroundColor: theme.colors.buttonTertiaryHoverFill,
+    };
+    return {
+      color: theme.colors.buttonTertiaryText,
+      backgroundColor: theme.colors.buttonTertiaryFill,
+      border: `1px solid ${theme.colors.buttonTertiaryBorder}`,
+      "&:active": activeStyle,
+      "&:hover": activeStyle,
     }
-  `,
-  negative: ({theme}) => `
-    color: ${theme.colors.buttonNegativeText};
-    background-color: ${theme.colors.buttonNegativeFill};
-    border: 1px solid ${theme.colors.buttonNegativeBorder};
-    &:active,
-    &:hover {
-      background-color: ${theme.colors.buttonNegativeHoverFill};
-    }
-  `,
-  tertiary: ({theme}) => `
-    color: ${theme.colors.buttonTertiaryText};
-    background-color: ${theme.colors.buttonTertiaryFill};
-    border: 1px solid ${theme.colors.buttonTertiaryBorder};
-    &:active,
-    &:hover {
-      background-color: ${theme.colors.buttonTertiaryHoverFill};
-    }
-  `,
+  },
 };
 
-export const Button = styled.button`
-  padding: 8px 12px;
-  border-radius: 7px;
-  min-width: 100px;
-  cursor: pointer;
-  transition: background-color 0.2s linear, color 0.2s linear;
-  border: unset;
-  user-select: none;
-
+export const Button = styled.button( props => ({
+  padding: "8px 12px",
+  borderRadius: "7px",
+  minWidth: "100px",
+  cursor: "pointer",
+  transition: "background-color 0.2s linear, color 0.2s linear",
+  border: "unset",
+  userSelect: "none",
+  "&:disabled": {
+    backgroundColor: props.theme.colors.buttonDisabledFill,
+    color: props.theme.colors.buttonDisabledText,
+    cursor: "not-allowed",
+    border: "unset",
+  },
   // Rendering button styles by props
-  ${ props => 
-    BUTTON_MODIFIERS[BUTTON_TYPES[props.type]](props)
-    +
-    BUTTON_MODIFIERS[BUTTON_SIZES[props.size]](props)
-  }
-
-  &:disabled {
-    background-color: ${({theme}) => theme.colors.buttonDisabledFill};
-    color: ${({theme}) => theme.colors.buttonDisabledText};
-    cursor: not-allowed;
-    border: unset;
-  }
-`;
+  ...BUTTON_MODIFIERS[BUTTON_TYPES[props.type]](props),
+  ...BUTTON_MODIFIERS[BUTTON_SIZES[props.size]](props),
+}));
 
 Button.propTypes = {
   type: PropTypes.oneOf(Object.values(BUTTON_TYPES)),
