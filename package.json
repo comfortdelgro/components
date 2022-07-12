@@ -1,11 +1,11 @@
 {
   "name": "@comfortdelgro/design-system",
   "description": "Comfort Delgro's design system",
-  "version": "0.5.10-dev",
+  "version": "0.5.11-dev",
   "dependencies": {
     "baseui": "^11.0.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^18.1.0 || ^17.0.2",
+    "react-dom": "^18.1.0 || ^17.0.2",
     "styled-components": "^4.4.1",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2",
@@ -13,8 +13,8 @@
   },
   "peerDependencies": {
     "baseui": "^11.0.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^18.1.0 || ^17.0.2",
+    "react-dom": "^18.1.0 || ^17.0.2",
     "styled-components": "^4.4.1",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2"
