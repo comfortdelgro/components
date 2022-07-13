@@ -1,0 +1,46 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs";
+import { action } from "@storybook/addon-actions";
+import { Button, BUTTON_TYPES, BUTTON_SIZES } from "./Buttons";
+
+<Meta title="Components/Buttons" component={Button} />
+
+export const Template = (props) => {
+  return <Button {...props} onClick={action("Clicked!")}>{props.value}</Button>;
+}
+
+# Buttons
+
+Buttons are used to trigger actions within an application.
+
+## Usage
+
+Buttons are used to trigger internal actions within your web applications.
+
+<Preview withToolbar>
+  <Story 
+    name="Buttons"
+    argTypes={{
+      size: {
+        options: Object.values(BUTTON_SIZES),
+        control: { type: 'radio' },
+      },
+      type: {
+        options: Object.values(BUTTON_TYPES),
+        control: { type: 'select' },
+      },
+      value: {
+        control: { type: 'text' },
+      },
+      disabled: {
+        control: { type: 'boolean' }
+      }
+    }}
+    args={{
+      size: BUTTON_SIZES.large,
+      type: BUTTON_TYPES.primary,
+      value: 'Call to action',
+      disabled: false,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Preview>

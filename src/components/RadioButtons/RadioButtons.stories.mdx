@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions";
 import { RADIO_BUTTON_TYPES, RadioGroup, Radio } from "./RadioButtons";
 import { useState } from "react";
 
-<Meta title="Components/Radios" component={Radio} />
+<Meta title="Form Controls" component={Radio} />
 
 # Radio Buttons
 
@@ -44,8 +44,8 @@ Radio buttons are used to select options within an application.
     {({ type, labelText, size, disabled }) => {
       const [selectedRadioValue, setSelectedRadioValue] = useState("");
       const radioChangeHandler = (value) => {
+        action('Changed!');
         setSelectedRadioValue(value);
-        console.debug('Radioed', value);
       }
       return  (
         <RadioGroup
