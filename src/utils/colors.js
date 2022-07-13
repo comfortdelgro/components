@@ -40,7 +40,12 @@ const tint = {
 
 const background = {
   base: "#FFFFFF",
+  sidebar: "#FAFAFA",
   layer1: "#F7F8F9",
+}
+
+const neutrals = {
+  100: "#25324B",
 }
 
 export const colors = {
@@ -70,5 +75,6 @@ export const colors = {
     tint80: tint[80],
   },
   background,
+  neutrals,
   transparent: "transparent",
 };
