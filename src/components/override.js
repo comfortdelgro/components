@@ -34,7 +34,11 @@ export function mergeAt(obj, priorObj = {}, prop) {
  * @returns Object|undefined
  */
 export function resolve(obj, key, props) {
-  return (obj && obj[key]) && obj[key](props);
+  if (obj && obj[key]) {
+    return typeof obj[key] === "function"
+            ? obj[key](props)
+            : obj[key];
+  }
 }
 
 /**
