@@ -2,72 +2,66 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { Input as BuiInput } from "baseui/input";
 import override from "./override";
+import { useStyletron } from "baseui";
 
-export const Input = (props) => {
-  const {
-    value, placeholder,
-    disabled, error, isFocused,
-    onChange, onBlur
-  } = props;
-  const overrides = override(props);
+export const Input = ({ overrides, startEnhancer, endEnhancer, ...restProps }) => {
+  const _overrides = override(overrides);
+  const [ , theme ] = useStyletron();
+  // TODO: must refactor star/endEnhancer rendering as a func
+  let StartEnhancer = startEnhancer;
+  StartEnhancer = StartEnhancer?.render === undefined 
+                    ? StartEnhancer
+                    :<StartEnhancer
+                      size={theme.sizing.inputEnhancer}
+                      color={theme.colors.inputStartEnhancer}/>
 
+  let EndEnhancer = endEnhancer;
+  EndEnhancer = EndEnhancer?.render === undefined 
+                    ? EndEnhancer
+                    :<EndEnhancer
+                      size={theme.sizing.inputEnhancer}/>
   return (
     <BuiInput
-      value={value}
-      onChange={onChange}
-      onBlur={onBlur}
-      placeholder={placeholder}
-      disabled={disabled}
-      error={error}
-      isFocused={isFocused}
-      overrides={overrides}
+      overrides={_overrides}
+      startEnhancer={StartEnhancer}
+      endEnhancer={EndEnhancer}
+      {...restProps}
     />
   );
 };
 
 Input.propTypes = {
-  value: PropTypes.string,
-  placeholder: PropTypes.string,
-
-  disabled: PropTypes.bool,
-  error: PropTypes.bool,
-  isFocused: PropTypes.bool,
-
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-
-  Root: PropTypes.object,
-  Input: PropTypes.object,
-  InputContainer: PropTypes.object,
-  After: PropTypes.object,
-  Before: PropTypes.object,
-  ClearIcon: PropTypes.object,
-  ClearIconContainer: PropTypes.object,
-  EndEnhancer: PropTypes.object,
-  MaskToggleButton: PropTypes.object,
-  MaskToggleHideIcon: PropTypes.object,
-  MaskToggleShowIcon: PropTypes.object,
-  StartEnhancer: PropTypes.object,
+  overrides: PropTypes.shape({
+    Root: PropTypes.object,
+    Input: PropTypes.object,
+    InputContainer: PropTypes.object,
+    After: PropTypes.object,
+    Before: PropTypes.object,
+    ClearIcon: PropTypes.object,
+    ClearIconContainer: PropTypes.object,
+    EndEnhancer: PropTypes.object,
+    MaskToggleButton: PropTypes.object,
+    MaskToggleHideIcon: PropTypes.object,
+    MaskToggleShowIcon: PropTypes.object,
+    StartEnhancer: PropTypes.object,
+  })
 };
 
 Input.defaultProps = {
-  value: '',
-  placeholder: '',
-
-  disabled: false,
-  error: false,
-  isFocused: false,
-
-  Root: undefined,
-  Input: undefined,
-  InputContainer: undefined,
-  After: undefined,
-  Before: undefined,
-  ClearIcon: undefined,
-  ClearIconContainer: undefined,
-  EndEnhancer: undefined,
-  MaskToggleButton: undefined,
-  MaskToggleHideIcon: undefined,
-  MaskToggleShowIcon: undefined,
-  StartEnhancer: undefined,
+  startEnhancer: undefined,
+  endEnhancer: undefined,
+  overrides: {
+    Root: {},
+    Input: {},
+    InputContainer: {},
+    After: {},
+    Before: {},
+    ClearIcon: {},
+    ClearIconContainer: {},
+    EndEnhancer: {},
+    MaskToggleButton: {},
+    MaskToggleHideIcon: {},
+    MaskToggleShowIcon: {},
+    StartEnhancer: {},
+  }
 };

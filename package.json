@@ -1,33 +1,28 @@
 {
   "name": "@comfortdelgro/design-system",
   "description": "Comfort Delgro's design system",
-  "version": "0.5.1",
+  "version": "0.5.15-dev",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^13.5.0",
-    "polished": "^4.2.2",
+    "baseui": "^11.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^4.4.1",
+    "styletron-engine-atomic": "^1.4.8",
+    "styletron-react": "^6.0.2",
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {
     "baseui": "^11.0.2",
-    "react": "^17.0.2 || ^18.1.0",
-    "react-dom": "^17.0.2 || ^18.1.0",
-    "react-scripts": "^5.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "styled-components": "^4.4.1",
-    "styled-components-modifiers": "^1.2.5",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "sb": "start-storybook -p 6006",
     "build-sb": "build-storybook -s public",
-    "clean": "rm -rf dist",
-    "prepublish": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --ignore __tests__,spec.js,test.js,stories.mdx,stories.js,__snapshots__"
+    "prepublish": "rm -rf dist && cross-env NODE_ENV=production babel src --out-dir dist --ignore __tests__,spec.js,test.js,stories.mdx,stories.js,__snapshots__"
   },
   "eslintConfig": {
     "extends": [
@@ -79,25 +74,17 @@
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
-    "baseui": "^11.0.2",
     "cross-env": "^7.0.3",
     "eslint-plugin-baseui": "^11.0.3",
-    "react": "^17.0.2 || ^18.1.0",
-    "react-dom": "^17.0.2 || ^18.1.0",
-    "react-scripts": "^5.0.1",
-    "styled-components": "^4.4.1",
-    "styled-components-modifiers": "^1.2.5",
-    "styletron-engine-atomic": "^1.4.8",
-    "styletron-react": "^6.0.2",
     "webpack": "^5.72.0"
   },
-  "main": "/dist/register.js",
+  "main": "dist/register.js",
   "files": [
     "dist",
     "README.md"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/comfortdelgro/components"
+    "url": "git+https://github.com/comfortdelgro/design-system"
   }
 }

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Meta, Story, Preview } from "@storybook/addon-docs";
 import { FormControl } from "../FormControls";
-import { Input } from "./Inputs";
-import { Search } from "baseui/icon";
+import { Textarea } from "./Textareas";
 
-<Meta title="Form Controls/Inputs" component={FormControl} />
+<Meta title="Form Controls/Textareas" component={FormControl} />
 
 export let isDirectlyChanged = false;
 
@@ -18,20 +17,14 @@ export const Template = ({ label, caption, disabled, error, value, ...inputArgs 
   isDirectlyChanged = false;
   return (
     <FormControl label={label} caption={caption} disabled={disabled} error={error}>
-      <Input
-        startEnhancer={Search}
-        value={localValue}
-        disabled={disabled}
-        error={error}
-        onChange={handleOnChange}
-        {...inputArgs}/>
+      <Textarea value={localValue} disabled={disabled} error={error} onChange={handleOnChange} {...inputArgs}/>
     </FormControl>
   )
 }
 
 <Canvas withToolbar>
   <Story
-    name="Inputs"
+    name="Textareas"
     argTypes={{
       label: {
         control: { type: "text" }
@@ -55,7 +48,7 @@ export const Template = ({ label, caption, disabled, error, value, ...inputArgs 
     args={{
       label: "Text label",
       caption: "Helper Message",
-      value: "John Doe",
+      value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar lacus convallis ultricies consectetur. Donec rutrum metus at lectus fermentum convallis. ",
       placeholder: "Placeholder...",
       disabled: false,
       error: false,
