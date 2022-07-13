@@ -105,6 +105,7 @@ const Root = styled.div`
   label {
     margin-left: calc(${props => props.size} + 6px);
     white-space: nowrap;
+    font-family: 'Poppins';
     font-weight: 400;
     font-size: 14px;
     line-height: ${props => props.size};
