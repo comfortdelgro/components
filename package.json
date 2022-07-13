@@ -1,7 +1,7 @@
 {
   "name": "@comfortdelgro/design-system",
   "description": "Comfort Delgro's design system",
-  "version": "0.5.15-dev",
+  "version": "0.8.0-dev",
   "dependencies": {
     "baseui": "^11.0.2",
     "react": "^17.0.2",
