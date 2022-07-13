@@ -5,18 +5,14 @@ import { GlobalStyle, defaultTheme } from './utils';
 
 import {Client as Styletron} from 'styletron-engine-atomic';
 import {Provider as StyletronProvider} from 'styletron-react';
-import {LightTheme, BaseProvider, createTheme} from 'baseui';
+import {BaseProvider, createTheme} from 'baseui';
 
-const Theme = ({ theme, children }) => {
-  const engine = new Styletron();
-  const mergedTheme = createTheme({
-    ...LightTheme,
-    primaryFontFamily: theme.primaryFontFamily,
-  }, theme);
+const Theme = ({ theme, engine, children }) => {
+  const customizedTheme = createTheme(theme.primitives, theme.overrides);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={customizedTheme}>
       <StyletronProvider value={engine}>
-        <BaseProvider theme={mergedTheme}>
+        <BaseProvider theme={customizedTheme}>
           <GlobalStyle/>
           {children}
         </BaseProvider>
@@ -27,6 +23,7 @@ const Theme = ({ theme, children }) => {
 
 Theme.propTypes = {
   theme: PropTypes.object.isRequired,
+  engine: PropTypes.object.isRequired,
   children: PropTypes.any,
 };
 
