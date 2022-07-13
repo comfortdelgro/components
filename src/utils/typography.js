@@ -1,38 +1,38 @@
 export const primaryFontFamily = "Poppins";
 
 //TODO:: try to merge and reduce scales
-export const headerScales = {
-  h1: {
+export const headingScales = {
+  HeadingXSmall: {
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "14px",
     lineHeight: "17px",
   },
-  h2: {
+  HeadingSmall: {
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "21px",
   },
-  h3: {
+  HeadingMedium: {
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "18px",
     lineHeight: "18px",
   },
-  h4: {
+  HeadingLarge: {
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "22px",
     lineHeight: "28px",
   },
-  h5: {
+  HeadingXLarge: {
     fontStyle: "normal",
     fontWeight: 500,
     fontSize: "28px",
     lineHeight: "34px",
   },
-  h6: {
+  HeadingXXLarge: {
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "28px",
@@ -46,6 +46,30 @@ export const headerScales = {
     lineHeight: "125%",
   },
 };
+
+export const labelScales = {
+  Label1: {
+    fontFamily: primaryFontFamily,
+    fontStyle: "normal",
+    fontWeight: 600,
+    fontSize: "14px",
+    lineHeight: "20px",
+  },
+  Label2: {
+    fontFamily: primaryFontFamily,
+    fontStyle: "normal",
+    fontWeight: 500,
+    fontSize: "12px",
+    lineHeight: "18px",
+  },
+  Label3: {
+    fontFamily: primaryFontFamily,
+    fontStyle: "normal",
+    fontWeight: 500,
+    fontSize: "10px",
+    lineHeight: "16px",
+  },
+}
 
 export const contentScales = {
   font200: {
@@ -81,7 +105,7 @@ export const formControlScales = {
 }
 
 export const navBarScales = {
-  appName: {
+  navTitle: {
     fontStyle: "normal",
     fontWeight: "700 !important", // to overpower bui override
     fontSize: "20px",
@@ -93,6 +117,12 @@ export const navBarScales = {
     fontSize: "16px",
     lineHeight: "24px",
   },
+  sideBarItem: {
+    fontStyle: "normal",
+    fontWeight: 500, // to overpower bui override
+    fontSize: "14px",
+    lineHeight: "21px",
+  }
 }
 
 export const buttonScales = {

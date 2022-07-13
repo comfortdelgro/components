@@ -1,8 +1,10 @@
+import { breakpoints } from "./breakpoints";
 import { colors } from "./colors";
 import sizing from "./sizing";
 import {
   primaryFontFamily,
-  headerScales,
+  headingScales,
+  labelScales,
   contentScales,
   tableScales,
   formControlScales,
@@ -18,6 +20,14 @@ export const defaultTheme = {
   overrides: {
     borderSelected: colors.primary.cdgBlue,
 
+    breakpoints,
+
+    mediaQuery: {
+      small: `@media screen and (min-width: ${breakpoints.small})`,
+      medium: `@media screen and (min-width: ${breakpoints.medium})`,
+      large: `@media screen and (min-width: ${breakpoints.large})`,
+    },
+
     colors: {
       primary: colors.primary.cdgBlue,
       primaryA: colors.primary.grey100,
@@ -27,6 +37,7 @@ export const defaultTheme = {
 
       contentPrimary: colors.shades.grey100,
       contentSecondary: colors.shades.grey60,
+      contentTertiary: colors.shades.grey40,
 
       buttonPrimaryFill: colors.primary.cdgBlue,
       buttonPrimaryText: colors.primary.white,
@@ -89,10 +100,16 @@ export const defaultTheme = {
       radioButtonBorderDisabled: colors.shades.grey40,
       radioButtonFillDisabled: colors.shades.grey40,
       radioButtonMarkFill: colors.primary.white,
+
+      sideBarFill: colors.background.sidebar,
+      sideBarItemHoverFill: colors.primary.cdgBlue,
+      sideBarItemText: colors.neutrals[100],
+      sideBarItemHoverText: colors.primary.white,
     },
 
     typography: {
-      ...headerScales,
+      ...headingScales,
+      ...labelScales,
       ...contentScales,
       ...tableScales,
       ...formControlScales,
