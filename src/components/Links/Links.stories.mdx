@@ -1,12 +1,11 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs";
 import { Link } from "./Links";
 
-<Meta title="Controls/Links" component={Link} />
+<Meta title="Navigations" component={Link} />
 
 export let isDirectlyChanged = false;
 
 export const Template = ({ label, ...props }) => {
-  console.debug('Link', Link.propTypes);
   return (
     <Link {...props} target="_blank">{label}</Link>
   )
