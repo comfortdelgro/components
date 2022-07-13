@@ -48,7 +48,6 @@ export const BUTTON_MODIFIERS = {
         style.padding = "12px 20px";
         break;
     }
-    console.debug("Button Style", style);
     return style;
   },
   xm: ({ theme }) => ({

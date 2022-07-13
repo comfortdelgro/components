@@ -22,7 +22,6 @@ const override = ({
     },
     Input: {
       style: (props) => {
-        console.log('inputText', props.$theme.colors.inputText);
         return {
           ...padding("12px 16px 12px 16px"),
           fontStyle: "normal",
