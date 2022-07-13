@@ -39,6 +39,28 @@ export function applyToAllCorners(prefix, postfix,value) {
   };
 }
 
+export function styleObjToStyleStr(obj) {
+  let str = '';
+  for (const key in obj) {
+    if (str.length !== 0) {
+      str += "\n";
+    }
+    str += `${kebabize(key)}: ${obj[key]};`
+  }
+  return str;
+};
+
+/**
+ * Convert camelCase string to kebab-case string
+ * Credit: https://stackoverflow.com/a/67243723/6887746
+ * 
+ * @param {string} str 
+ * @returns {string}
+ */
+export function kebabize(str) {
+  return str.replace(/[A-Z]+(?![a-z])|[A-Z]/g, ($, ofs) => (ofs ? "-" : "") + $.toLowerCase());
+}
+
 /**
  * Expand given margin style string
  * to array.
