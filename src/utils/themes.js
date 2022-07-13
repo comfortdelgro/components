@@ -1,54 +1,127 @@
-import { white, orange, red, yellow, green, blue, grey, neutral, purple } from "./colors";
-import { lightShadow } from "./shadows";
-import { primaryFont, secondaryFont } from "./typography";
+import { breakpoints } from "./breakpoints";
+import { colors } from "./colors";
+import sizing from "./sizing";
+import {
+  primaryFontFamily,
+  headingScales,
+  labelScales,
+  contentScales,
+  tableScales,
+  formControlScales,
+  navBarScales,
+  buttonScales
+} from "./typography";
 
-// TODO:: Refactor all colors name to uppercase? eg. CDGBLUE80, G100
 export const defaultTheme = {
-  primaryColors: {
-    B500: blue[500],
-    cdgBlue80: blue[80],
-    B50: blue[50],
-    cdgBlue40: blue[40],
-    grey100: grey[100],
-    white,
-  },
-  secondaryColors: {
-    secondaryButton: blue.secondaryButton,
-    cdgBlue60: blue[60],
-    cdgBlue20: blue[20],
-    orange,
-
-    R100: red[100],
-    R500: red[500],
-    R400: red[400],
-    R50: red[50],
-
-    Y500: yellow[500],
-    Y75: yellow[75],
-
-    G500: green[500],
-    G400: green[400],
-    G50: green[50],
-
-    N800: neutral[800],
-    N500: neutral[500],
-    N40: neutral[40],
-    N0: neutral[0],
-
-    P500: purple[500],
-    P400: purple[400],
-    P50: purple[50],
-  },
-  disabled: grey[20],
-  textOnDisabled: grey[60],
-  outline: grey[20],
-  
-  shadows: {
-    light: lightShadow,
+  primitives: {
+    primaryFontFamily,
   },
 
-  primaryFont,
-  secondaryFont,
+  overrides: {
+    borderSelected: colors.primary.cdgBlue,
+
+    breakpoints,
+
+    mediaQuery: {
+      small: `@media screen and (min-width: ${breakpoints.small})`,
+      medium: `@media screen and (min-width: ${breakpoints.medium})`,
+      large: `@media screen and (min-width: ${breakpoints.large})`,
+    },
+
+    colors: {
+      primary: colors.primary.cdgBlue,
+      primaryA: colors.primary.grey100,
+      primaryB: colors.primary.white,
+
+      borderSelected: colors.primary.cdgBlue,
+
+      contentPrimary: colors.shades.grey100,
+      contentSecondary: colors.shades.grey60,
+      contentTertiary: colors.shades.grey40,
+
+      buttonPrimaryFill: colors.primary.cdgBlue,
+      buttonPrimaryText: colors.primary.white,
+      buttonPrimaryHover: colors.shades.cdgBlue120,
+
+      buttonSecondaryFill: colors.primary.white,
+      buttonSecondaryText: colors.primary.cdgBlue,
+      buttonSecondaryBorder: colors.primary.cdgBlue,
+      buttonSecondaryHoverFill: colors.shades.grey10,
+      buttonSecondaryHoverText: colors.shades.cdgBlue120,
+      buttonSecondaryHoverBorder: colors.shades.cdgBlue120,
+
+      buttonNegativeFill: colors.primary.white,
+      buttonNegativeText: colors.secondary.red,
+      buttonNegativeBorder: colors.secondary.red,
+      buttonNegativeHoverFill: colors.shades.grey10,
+
+      buttonTertiaryFill: colors.transparent,
+      buttonTertiaryText: colors.shades.grey60,
+      buttonTertiaryBorder: colors.transparent,
+      buttonTertiaryHoverFill: colors.shades.grey10,
+
+      buttonDisabledFill: colors.shades.grey20,
+      buttonDisabledText: colors.shades.grey60,
+
+      inputBorder: colors.shades.grey20,
+      inputBorderError: colors.secondary.red,
+      inputFill: colors.primary.white,
+      inputFillActive: colors.primary.white,
+      inputFillError: colors.primary.white,
+      inputFillDisabled: colors.shades.grey20,
+      inputText: colors.shades.grey100,
+      inputTextDisabled: colors.shades.grey60,
+      inputPlaceholder: colors.shades.grey40,
+      inputStartEnhancer: colors.secondary.linkBlue,
+
+      linkText: colors.shades.grey60,
+      linkHover: colors.shades.cdgBlue80,
+      linkActive: colors.shades.cdgBlue80,
+      linkVisited: colors.shades.grey60,
+
+      tableHeadBackgroundColor: colors.background.layer1,
+      tableBodyCellText: colors.shades.grey60,
+
+      tickFillSelected: colors.primary.cdgBlue,
+      tickFillSelectedHover: colors.shades.cdgBlue20,
+      tickFillHover: colors.shades.cdgBlue20,
+      tickBorder: colors.shades.grey20,
+      tickBorderHover: colors.shades.cdgBlue20,
+      tickBorderFocus: colors.secondary.linkBlue,
+      tickText: colors.shades.grey100,
+      tickTextDisabled: colors.shades.grey100,
+
+      radioButtonBorder: colors.shades.grey20,
+      radioButtonBorderSelected: colors.shades.cdgBlue100,
+      radioButtonBorderHovered: colors.shades.cdgBlue20,
+      radioButtonFill: colors.primary.white,
+      radioButtonFillSelected: colors.shades.cdgBlue100,
+      radioButtonFillHovered: colors.shades.cdgBlue20,
+      radioButtonBorderDisabled: colors.shades.grey40,
+      radioButtonFillDisabled: colors.shades.grey40,
+      radioButtonMarkFill: colors.primary.white,
+
+      sideBarFill: colors.background.sidebar,
+      sideBarItemHoverFill: colors.primary.cdgBlue,
+      sideBarItemText: colors.neutrals[100],
+      sideBarItemHoverText: colors.primary.white,
+    },
+
+    typography: {
+      ...headingScales,
+      ...labelScales,
+      ...contentScales,
+      ...tableScales,
+      ...formControlScales,
+      ...navBarScales,
+      ...buttonScales,
+    },
+
+    sizing,
+    strokes: {
+      storke2: `2px solid ${colors.shades.grey20}`
+    },
+
+    icons: {},
+  },
 };
-
-export const darkTheme = {};

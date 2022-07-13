@@ -1,16 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 // TODO: refactor default props declaration
  
 // TODO: centralized types declaration pattern for all components
 export const RADIO_BUTTON_TYPES = {
   PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  ORANGE: 'orange',
-  LIGHT: 'light',
-  LIGHT_SECONDARY: 'light-secondary',
 };
 
 export class RadioGroup extends React.Component {
@@ -92,7 +88,7 @@ Radio.propTypes = {
 };
 
 Radio.defaultProps = {
-  type: 'primary',
+  type: RADIO_BUTTON_TYPES.PRIMARY,
   onChange: () => {},
   value: "",
   labelText: "",
@@ -107,12 +103,26 @@ const Root = styled.div`
   height: ${props => props.size};
   position: relative;
   label {
-    margin-left: calc(${props => props.size} + 5px);
+    margin-left: calc(${props => props.size} + 6px);
     white-space: nowrap;
-    font-weight: 700;
-    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 14px;
     line-height: ${props => props.size};
   }
+
+  ${({checked, theme}) => {
+    if (!checked) {
+      return css`
+        &:hover {
+          &::before {
+            border-color: ${theme.colors.radioButtonBorderHovered};
+            background: ${theme.colors.radioButtonFillHovered};
+          }
+        }
+      `;
+    }
+  }}
   &::before {
     content: "";
     border-radius: 100%;
@@ -124,50 +134,30 @@ const Root = styled.div`
     pointer-events: none;
     z-index: 0;
     // Solving Modifiers
-    ${(props) => {
-      const borderStyle = `2px solid ${(props.borderColor ? props.borderColor : props.theme.outline)}`;
-      let style = '';
-      if (props.checked || props.disabled) {
-        const bgColor = (({ type, disabled, theme }) => {
-          if (disabled) return theme.disabled;
-          switch (type) {
-            case RADIO_BUTTON_TYPES.SECONDARY: return theme.secondaryColors.secondaryButton;
-            case RADIO_BUTTON_TYPES.ORANGE: return theme.secondaryColors.orange;
-            case RADIO_BUTTON_TYPES.LIGHT: return theme.primaryColors.white;
-            case RADIO_BUTTON_TYPES.LIGHT_SECONDARY: return theme.primaryColors.white;
-            default: return theme.primaryColors.cdgBlue80;
-          } 
-        })(props);
-
-        const hasBorder = props.type === RADIO_BUTTON_TYPES.LIGHT; 
-
-        style += `
-          border: ${ hasBorder ? borderStyle : 'unset' };
-          background: ${props.backgroundColor ? props.backgroundColor : bgColor}
+    ${({ checked, disabled, theme }) => {
+      const borderStyle = `2px solid`;
+      if (disabled) {
+        return `
+          border: ${borderStyle} ${theme.colors.radioButtonBorderDisabled};
+          background: ${theme.colors.radioButtonFillDisabled}
+        `;
+      } else if (checked) {
+        return `
+          border: ${borderStyle} ${theme.colors.radioButtonBorderSelected};
+          background: ${theme.colors.radioButtonFillSelected};
         `;
       } else {
-
-        const hasBorder = !(props.type === RADIO_BUTTON_TYPES.LIGHT_SECONDARY || props.disabled);
-
-        style += `
-          border: ${ hasBorder ? borderStyle : `unset` };
-          background: ${props.backgroundColor ? props.backgroundColor : props.theme.primaryColors.white};
+        return `
+          border: ${borderStyle} ${theme.colors.radioButtonBorder};
+          background: ${theme.colors.radioButtonFill};
         `;
       }
-
-      if (props.type === RADIO_BUTTON_TYPES.LIGHT_SECONDARY) {
-        style += `
-          box-shadow: ${props.theme.shadows.light};
-        `;
-      }
-
-      return style;
     }}
   }
 `;
 
 const Fill = styled.div`
-  background: ${props => (props.fillColor ? props.fillColor : props.theme.primaryColors.white)};
+  background: ${({theme}) => theme.colors.radioButtonMarkFill};
   width: 0;
   height: 0;
   border-radius: 100%;
@@ -212,21 +202,6 @@ const Input = styled.input`
       width: calc(100% - 58%);
       height: calc(100% - 58%);
       transition: width 0.2s ease-out, height 0.2s ease-out;
-
-      &::before {
-        opacity: 1;
-        transition: opacity 1s ease;
-        background: ${ ({ radioType, theme, disabled }) => {
-          if (disabled) return theme.textOnDisabled;
-
-          switch(radioType) {
-            case RADIO_BUTTON_TYPES.SECONDARY: return theme.primaryColors.cdgBlue80;
-            case RADIO_BUTTON_TYPES.LIGHT: return theme.primaryColors.cdgBlue80;
-            case RADIO_BUTTON_TYPES.LIGHT_SECONDARY: return theme.primaryColors.cdgBlue80;
-            default: return theme.primaryColors.white;
-          }
-        }};
-      }
     }
   }
 `;

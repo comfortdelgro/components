@@ -1,66 +1,80 @@
-export const white = "#FFFFFF";
+const secondary = {
+  linkBlue: "#009EDA",
+  linkBlue20: "#CCECF8",
 
-export const orange = "#EF631A";
+  orange: "#EF631A",
+  orange20: "#FCE0D1",
 
-export const blue = {
-  500: "#0747A6",
-  100: "#080C4E",
-  80: "#0142AF",
-  60: "#044CC5",
-  50: "#DEEBFF",
-  40: "#008BF8",
-  20: "#7BD7FF",
-  10: "#D2E2F1",
-  
-  link: "#0275D8",
-  secondaryButton: "#DEE8F9",
-};
+  red: "#E31617",
+  red20: "#F9D0D1",
 
-export const grey = {
-  100: "#333333",
-  80: "#3E3E3E",
-  60: "#757575",
-  40: "#D7D8D6",
-  20: "#E6E6E6",
-  10: "#F7F8F9",
-};
+  yellow: "#FFC107",
+  yellow20: "#FFF3CD",
 
-export const neutral = {
-  800: "#172B4D",
-  500: "#42526E",
-  40: "#DFE1E6",
-  0: "#FFFFFF",
-};
-
-export const purple = {
-  400: "#5243AA",
-  50: "#EAE6FF",
-};
-
-export const red = {
-  500: "#BF2600",
-  400: "#DE350B",
-  100: "#A8000B",
-  50: "#FFEBE6",
-};
-
-export const green = {
-  500: "#006644",
-  400: "#00875A",
-  100: "#00847F",
-  50: "#E3FCEF",
-};
-
-export const yellow = {
-  500: "#FF8B00",
-  100: "#FFC107",
-  75: "#FFF0B3",
-};
-
-export const tint = {
-  100: "rgba(51, 51, 51, 0.85)",
-  80: "rgba(51, 51, 51, 0.45)",
-  60: "rgba(51, 51, 51, 0.22)",
-  40: "rgba(8, 12, 78, 0.18)",
-  10: "rgba(8, 12, 78, 0.05)",
+  green: "#159A00",
+  green20: "#D0EBCC",
 }
+
+const blue = {
+  10: "#E6ECF7",
+  20: "#CCD9EF",
+  40: "#99B3DF",
+  60: "#678ECF",
+  80: "#3468BF",
+  100: "#0142AF",
+  120: "#012158",
+};
+
+const grey = {
+  0: "#FFFFFF",
+  20: "#E6E6E6",
+  40: "#B4B4B4",
+  60: "#757575",
+  80: "#3E3E3E",
+  100: "#333333",
+};
+
+const tint = {
+  80: "gba(51, 51, 51, 0.45)",
+};
+
+const background = {
+  base: "#FFFFFF",
+  sidebar: "#FAFAFA",
+  layer1: "#F7F8F9",
+}
+
+const neutrals = {
+  100: "#25324B",
+}
+
+export const colors = {
+  primary: {
+    cdgBlue: blue[100],
+    grey100: grey[100],
+    white: grey[0],
+  },
+  secondary,
+  shades: {
+    cdgBlue10: blue[10],
+    cdgBlue20: blue[20],
+    cdgBlue40: blue[40],
+    cdgBlue60: blue[60],
+    cdgBlue80: blue[80],
+    cdgBlue100: blue[100],
+    cdgBlue120: blue[120],
+
+    white: grey[0],
+    grey10: background.layer1,
+    grey20: grey[20],
+    grey40: grey[40],
+    grey60: grey[60],
+    grey100: grey[100],
+  },
+  tints: {
+    tint80: tint[80],
+  },
+  background,
+  neutrals,
+  transparent: "transparent",
+};

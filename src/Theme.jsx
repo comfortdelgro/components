@@ -1,23 +1,34 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle, defaultTheme, } from './utils';
+import { GlobalStyle, defaultTheme } from './utils';
 
 import {Client as Styletron} from 'styletron-engine-atomic';
 import {Provider as StyletronProvider} from 'styletron-react';
-import {LightTheme, BaseProvider} from 'baseui';
+import {BaseProvider, createTheme} from 'baseui';
 
-const engine = new Styletron();
+const Theme = ({ theme, engine, children }) => {
+  const customizedTheme = createTheme(theme.primitives, theme.overrides);
+  return (
+    <ThemeProvider theme={customizedTheme}>
+      <StyletronProvider value={engine}>
+        <BaseProvider theme={customizedTheme}>
+          <GlobalStyle/>
+          {children}
+        </BaseProvider>
+      </StyletronProvider>
+    </ThemeProvider>
+  );
+};
 
+Theme.propTypes = {
+  theme: PropTypes.object.isRequired,
+  engine: PropTypes.object.isRequired,
+  children: PropTypes.any,
+};
 
-const Theme = ({ children }) => (
-  <ThemeProvider theme={defaultTheme}>
-    <StyletronProvider value={engine}>
-      <BaseProvider theme={LightTheme}>
-        {children}
-      </BaseProvider>
-    </StyletronProvider>
-    <GlobalStyle />
-  </ThemeProvider>
-);
+Theme.defaultProps = {
+  theme: defaultTheme,
+};
 
 export default Theme;

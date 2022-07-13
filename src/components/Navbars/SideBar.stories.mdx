@@ -1,0 +1,124 @@
+import { useState, useRef } from 'react';
+import { Meta, Story, Preview } from "@storybook/addon-docs";
+import { action } from "@storybook/addon-actions";
+import {
+  HeaderNavBar,
+  NavBarList,
+  NavBarListItem,
+  HeaderNavBarMenuList,
+  TitleNavBarListItem,
+  NavMenuButton,
+  ALIGN
+} from "./HeaderNavBar";
+import {
+  SideBar,
+  SideBarItem,
+  LOGO_SIZE,
+  SIDE_BAR_ITEM_ICON_SIZE,
+} from "./SideBar";
+import UserMenu from './UserMenu';
+import { Link } from "../Links";
+import { Button } from "../Buttons";
+import { Check, Upload } from "baseui/icon";
+
+<Meta
+  title="Navigations"
+  component={SideBar}
+  parameters={{
+    layout: 'fullscreen',
+  }}/>
+
+export const Template = ({ isSidebarOpened, title, username, usernameSubtitle, ...restProps }) => {
+  const mainRef = useRef(null);
+  return (
+    <>
+      <SideBar
+        collapsible={true}
+        isOpened={isSidebarOpened}
+        logo={<Upload size={LOGO_SIZE} color="#0142AF"/>}
+        mainRef={mainRef}
+        onClose={action("SideBarOnClose")}
+        onHover={action("SideBarOnHover")}>
+        <SideBarItem
+          isActive={true}
+          icon={<Upload size={SIDE_BAR_ITEM_ICON_SIZE}/>}>
+          Home
+        </SideBarItem>
+        <SideBarItem
+          icon={<Upload size={SIDE_BAR_ITEM_ICON_SIZE}/>}>
+          Users
+        </SideBarItem>
+        <SideBarItem
+          icon={<Upload size={SIDE_BAR_ITEM_ICON_SIZE}/>}>
+          Products
+        </SideBarItem>
+      </SideBar>
+      <main ref={mainRef}>
+        <HeaderNavBar>
+          <HeaderNavBarMenuList
+            $align={ALIGN.left}
+            title={title}
+            onMenuClick={action("HeaderNavBarOnMenuClick")}/>
+          <NavBarList $align={ALIGN.center} />
+          <NavBarList $align={ALIGN.right}>
+            <NavBarListItem>
+              <Link href="#basic-link1">
+                Tab Link One
+              </Link>
+            </NavBarListItem>
+            <NavBarListItem>
+              <Link href="#basic-link2">
+                Tab Link Two
+              </Link>
+            </NavBarListItem>
+          </NavBarList>
+          <NavBarList $align={ALIGN.right}>
+            <NavBarListItem>
+              <Button type="secondary" size="sm">Get started</Button>
+            </NavBarListItem>
+          </NavBarList>
+          <UserMenu 
+            $align={ALIGN.right}
+            username={username}
+            usernameSubtitle={usernameSubtitle}
+            userImgUrl="https://source.unsplash.com/user/c_v_r/100x100"
+            userItems={[
+              { icon: Check, label: "Settings" },
+              { icon: Check, label: "Logout" }
+            ]}
+            onItemSelect={action("UserItemSelect")}
+            {...restProps}/>
+        </HeaderNavBar>
+      </main>
+    </>
+  );
+}
+
+<Canvas withToolbar>
+  <Story
+    name="HeaderNavBar"
+    argTypes={{
+      title: {
+        control: { type: 'text' }
+      },
+      username: {
+        control: { type: 'text' }
+      },
+      usernameSubtitle: {
+        control: { type: 'text' }
+      },
+      isSidebarOpened: {
+        control: { type: 'boolean' }
+      }
+    }}
+    args={{
+      title: 'Dashboard',
+      username: 'Phylis Yang',
+      usernameSubtitle: 'Silicon Links Inc',
+      isSidebarOpened: false,
+    }}>
+    {
+      Template.bind({})
+    }
+  </Story>
+</Canvas>
