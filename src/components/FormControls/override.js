@@ -1,7 +1,7 @@
 import { resolveComponent, resolveProps, resolveStyle } from "../override";
 import { margin } from "../../utils/helpers/style";
 
-const override = ({ Label, Caption }) => ({
+const override = ({ Label, Caption, ControlContainer }) => ({
   Label: {
     style: (props) => ({
       fontStyle: "normal",
@@ -29,6 +29,11 @@ const override = ({ Label, Caption }) => ({
     }),
     props: resolveProps({}, Caption),
     ...resolveComponent(Caption),
+  },
+  ControlContainer: {
+    style: (props) => resolveStyle(ControlContainer, props),
+    props: resolveProps({}, ControlContainer),
+    ...resolveComponent(ControlContainer),
   },
 });
 export default override;

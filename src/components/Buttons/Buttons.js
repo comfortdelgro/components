@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-export const BUTTON_TYPES = {
+export const BUTTON_KINDS = {
   primary: 'primary',
   secondary: 'secondary',
   negative: 'negative',
@@ -120,19 +120,19 @@ export const Button = styled.button( props => ({
     border: "unset",
   },
   // Rendering button styles by props
-  ...BUTTON_MODIFIERS[BUTTON_TYPES[props.type]](props),
+  ...BUTTON_MODIFIERS[BUTTON_KINDS[props.kind]](props),
   ...BUTTON_MODIFIERS[BUTTON_SIZES[props.size]](props),
 }));
 
 Button.propTypes = {
-  type: PropTypes.oneOf(Object.values(BUTTON_TYPES)),
+  kind: PropTypes.oneOf(Object.values(BUTTON_KINDS)),
   size: PropTypes.oneOf(Object.values(BUTTON_SIZES)),
   iconPosition: PropTypes.oneOf(Object.values(BUTTON_ICON_POSITIONS)),
   onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
-  type: BUTTON_TYPES.primary,
-  size: BUTTON_SIZES.large,
+  kind: BUTTON_KINDS.primary,
+  size: BUTTON_SIZES.sm,
   onClick: () => {},
 }
