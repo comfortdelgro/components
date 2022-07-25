@@ -1,6 +1,6 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs";
 import { action } from "@storybook/addon-actions";
-import { Button, BUTTON_TYPES, BUTTON_SIZES } from "./Buttons";
+import { Button, BUTTON_KINDS, BUTTON_SIZES } from "./Buttons";
 
 <Meta title="Components/Buttons" component={Button} />
 
@@ -24,8 +24,8 @@ Buttons are used to trigger internal actions within your web applications.
         options: Object.values(BUTTON_SIZES),
         control: { type: 'radio' },
       },
-      type: {
-        options: Object.values(BUTTON_TYPES),
+      kind: {
+        options: Object.values(BUTTON_KINDS),
         control: { type: 'select' },
       },
       value: {
@@ -37,7 +37,7 @@ Buttons are used to trigger internal actions within your web applications.
     }}
     args={{
       size: BUTTON_SIZES.large,
-      type: BUTTON_TYPES.primary,
+      type: BUTTON_KINDS.primary,
       value: 'Call to action',
       disabled: false,
     }}>
