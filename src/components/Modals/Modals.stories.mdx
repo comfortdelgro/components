@@ -11,7 +11,7 @@ import {
   SIZE,
   ROLE
 } from "baseui/modal";
-import { BUTTON_TYPES, BUTTON_SIZES } from "../Buttons";
+import { BUTTON_KINDS, BUTTON_SIZES } from "../Buttons";
 
 <Meta title="Popups/Modal" component={Modal} />
 
@@ -32,7 +32,7 @@ export const Template = function({ isOpen }) {
         Maecenas aliquet mauris ut tempus.
       </ModalBody>
       <ModalFooter>
-        <ModalButton onClick={action("Cancel")} type={BUTTON_TYPES.tertiary} size={BUTTON_SIZES.xm}>
+        <ModalButton onClick={action("Cancel")} kind={BUTTON_KINDS.tertiary} size={BUTTON_SIZES.xm}>
           Cancel
         </ModalButton>
         <ModalButton onClick={action("Okay")} size={BUTTON_SIZES.xm}>Okay</ModalButton>
