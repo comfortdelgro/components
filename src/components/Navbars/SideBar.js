@@ -148,6 +148,7 @@ export const SideBar = React.forwardRef(({
 SideBar.displayName = "SideBar";
 
 export const SideBarItem = React.forwardRef(({
+  isActive,
   isOpened,
   icon,
   children,
@@ -156,6 +157,7 @@ export const SideBarItem = React.forwardRef(({
   return (
     <StyledSideBarItem
       ref={ref}
+      isActive={isActive}
       isOpened={isOpened}
       {...restProps}>
       <StyledSideBarItemIcon>{ icon }</StyledSideBarItemIcon>

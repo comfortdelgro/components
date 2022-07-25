@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    // Generate d.ts files
+    "declaration": true,
+    // This compiler run should
+    // only output d.ts files
+    "emitDeclarationOnly": true,
+    // Types should go into this directory.
+    // Removing this would place the .d.ts files
+    // next to the .js files
+    // "outDir": "dist",
+    "declarationMap": true,
+    "jsx": "preserve",
+    "noEmitOnError": true,
+    "downlevelIteration": true,
+    "lib": ["esnext", "dom"]
+  }
+}
