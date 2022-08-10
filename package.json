@@ -21,6 +21,7 @@
   ],
   "scripts": {
     "build-sb": "build-storybook -s public",
+    "format": "prettier --write --cache --ignore-unknown .",
     "prepublish": "rm -rf dist && cross-env NODE_ENV=production babel src --out-dir dist --ignore __tests__,spec.js,test.js,stories.mdx,stories.js,__snapshots__ --copy-files",
     "sb": "start-storybook -p 6006",
     "tsc:dist": "tsc -p tsconfig.dist.json"
