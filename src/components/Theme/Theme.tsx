@@ -6,15 +6,15 @@ import {
   Server as StyletronServer,
 } from 'styletron-engine-atomic'
 import {Provider as StyletronProvider} from 'styletron-react'
-import {GlobalStyle} from './components'
-import {defaultTheme} from './utils/themes'
+import {defaultTheme} from '../../utils/themes'
+import {GlobalStyle} from '../GlobalStyle'
 
 export interface Props {
   theme: typeof defaultTheme
   engine: StyletronClient | StyletronServer
 }
 
-const Theme: React.FC<Props> = ({theme, engine, children}) => {
+export const Theme: React.FC<Props> = ({theme, engine, children}) => {
   const customizedTheme = createTheme(theme.primitives, theme.overrides)
 
   return (
@@ -28,5 +28,3 @@ const Theme: React.FC<Props> = ({theme, engine, children}) => {
     </ThemeProvider>
   )
 }
-
-export default Theme
