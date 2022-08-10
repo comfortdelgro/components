@@ -1,10 +1,44 @@
 export const primaryFontFamily: string;
+export interface accordionScales {
+  accordionHeader: {
+    fontStyle: string;
+    fontWeight: number;
+    fontSize: string;
+    lineHeight: string;
+  }
+}
+export interface avatarScales {
+  avatarLg: {
+    fontStyle: string;
+    fontWeight: number | string;
+    fontSize: string;
+    lineHeight: string;
+  }
+  avatarMd: {
+    fontStyle: string;
+    fontWeight: number | string;
+    fontSize: string;
+    lineHeight: string;
+  }
+  avatarSm: {
+    fontStyle: string;
+    fontWeight: number | string;
+    fontSize: string;
+    lineHeight: string;
+  }
+  avatarXs: {
+    fontStyle: string;
+    fontWeight: number | string;
+    fontSize: string;
+    lineHeight: string;
+  }
+}
 export interface headingScales {
     HeadingXSmall: {
-        fontStyle: string;
-        fontWeight: number;
-        fontSize: string;
-        lineHeight: string;
+      fontStyle: string;
+      fontWeight: number;
+      fontSize: string;
+      lineHeight: string;
     }
     HeadingSmall: {
       fontStyle: string;

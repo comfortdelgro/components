@@ -3,6 +3,8 @@ import { colors } from "./colors";
 import sizing from "./sizing";
 import {
   primaryFontFamily,
+  avatarScales,
+  accordionScales,
   headingScales,
   labelScales,
   contentScales,
@@ -108,6 +110,8 @@ export const defaultTheme = {
     },
 
     typography: {
+      ...avatarScales,
+      ...accordionScales,
       ...headingScales,
       ...labelScales,
       ...contentScales,
