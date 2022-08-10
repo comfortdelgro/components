@@ -3,6 +3,8 @@ import { colors } from "./colors";
 import sizing from "./sizing";
 import {
   primaryFontFamily,
+  avatarScales,
+  accordionScales,
   headingScales,
   labelScales,
   contentScales,
@@ -53,7 +55,7 @@ export const defaultTheme = {
       buttonNegativeFill: colors.primary.white,
       buttonNegativeText: colors.secondary.red,
       buttonNegativeBorder: colors.secondary.red,
-      buttonNegativeHoverFill: colors.shades.grey10,
+      buttonNegativeHoverFill: colors.secondary.red20,
 
       buttonTertiaryFill: colors.transparent,
       buttonTertiaryText: colors.shades.grey60,
@@ -108,6 +110,8 @@ export const defaultTheme = {
     },
 
     typography: {
+      ...avatarScales,
+      ...accordionScales,
       ...headingScales,
       ...labelScales,
       ...contentScales,

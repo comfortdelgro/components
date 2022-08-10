@@ -69,133 +69,163 @@ export type defaultThemeT = Theme & {
             sideBarItemHoverText: string;
         }
         typography: {
-            btnLarge: {
-                fontFamily: string;
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            btnSm: {
-                fontFamily: string;
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            btnXm: {
-                fontFamily: string;
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            navTitle: {
-                fontStyle: string;
-                fontWeight: string;
-                fontSize: string;
-                lineHeight: string;
-            };
-            navMenuItem: {
-                fontStyle: string;
-                fontWeight: string;
-                fontSize: string;
-                lineHeight: string;
-            };
-            sideBarItem: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            checkBoxLabel: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            input: {
-                fontStyle: string;
-                fontWeight: string;
-                fontSize: string;
-                lineHeight: string;
-            };
-            tableHeadeCell: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            font200: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            Label1: {
-                fontFamily: string;
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            Label2: {
-                fontFamily: string;
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            Label3: {
-                fontFamily: string;
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            HeadingXSmall: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            HeadingSmall: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            HeadingMedium: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            HeadingLarge: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            HeadingXLarge: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            HeadingXXLarge: {
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
-            h600: {
-                fontFamily: string;
-                fontStyle: string;
-                fontWeight: number;
-                fontSize: string;
-                lineHeight: string;
-            };
+          avatarLg: {
+            fontStyle: string;
+            fontWeight: number | string;
+            fontSize: string;
+            lineHeight: string;
+          }
+          avatarMd: {
+            fontStyle: string;
+            fontWeight: number | string;
+            fontSize: string;
+            lineHeight: string;
+          }
+          avatarSm: {
+            fontStyle: string;
+            fontWeight: number | string;
+            fontSize: string;
+            lineHeight: string;
+          }
+          avatarXs: {
+            fontStyle: string;
+            fontWeight: number | string;
+            fontSize: string;
+            lineHeight: string;
+          }
+          accordionHeader: {
+            fontStyle: string;
+            fontWeight: number;
+            fontSize: string;
+            lineHeight: string;
+          };
+          btnLarge: {
+              fontFamily: string;
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          btnSm: {
+              fontFamily: string;
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          btnXm: {
+              fontFamily: string;
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          navTitle: {
+              fontStyle: string;
+              fontWeight: string;
+              fontSize: string;
+              lineHeight: string;
+          };
+          navMenuItem: {
+              fontStyle: string;
+              fontWeight: string;
+              fontSize: string;
+              lineHeight: string;
+          };
+          sideBarItem: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          checkBoxLabel: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          input: {
+              fontStyle: string;
+              fontWeight: string;
+              fontSize: string;
+              lineHeight: string;
+          };
+          tableHeadeCell: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          font200: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          Label1: {
+              fontFamily: string;
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          Label2: {
+              fontFamily: string;
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          Label3: {
+              fontFamily: string;
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          HeadingXSmall: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          HeadingSmall: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          HeadingMedium: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          HeadingLarge: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          HeadingXLarge: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          HeadingXXLarge: {
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
+          h600: {
+              fontFamily: string;
+              fontStyle: string;
+              fontWeight: number;
+              fontSize: string;
+              lineHeight: string;
+          };
         };
         sizing: sizing;
         strokes: {
