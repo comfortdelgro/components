@@ -1,1 +1,0 @@
-export { ReactComponent as MarkOutline } from "./done_outlined.svg";

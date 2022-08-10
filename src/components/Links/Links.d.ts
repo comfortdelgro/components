@@ -15,4 +15,3 @@ export namespace Link {
         export { isActive_1 as isActive };
     }
 }
-//# sourceMappingURL=Links.d.ts.map

@@ -8,6 +8,7 @@ export const Breadcrumbs = ({ overrides, children, ...restProps }) => {
   return (
     <BuiBreadcrumbs
       overrides={localOverrides}
+      {...restProps}
     >
       { children }
     </BuiBreadcrumbs>
