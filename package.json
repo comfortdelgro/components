@@ -63,5 +63,6 @@
     "styled-components": "^4.4.1",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2"
-  }
+  },
+  "packageManager": "pnpm@7.9.0"
 }
