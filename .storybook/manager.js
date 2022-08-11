@@ -1,4 +1,4 @@
-import { addons } from '@storybook/addons';
+import {addons} from '@storybook/addons'
 
 addons.setConfig({
   isFullscreen: false,
@@ -15,10 +15,10 @@ addons.setConfig({
     collapsedRoots: ['other'],
   },
   toolbar: {
-    title: { hidden: false, },
-    zoom: { hidden: false, },
-    eject: { hidden: false, },
-    copy: { hidden: false, },
-    fullscreen: { hidden: false, },
+    title: {hidden: false},
+    zoom: {hidden: false},
+    eject: {hidden: false},
+    copy: {hidden: false},
+    fullscreen: {hidden: false},
   },
-});
+})
