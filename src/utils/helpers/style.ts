@@ -7,7 +7,10 @@ export function applyToAllSides(
   postfix: string,
   value: string | string[],
 ) {
-  const values = typeof value === 'string' ? Array(4).fill(value) : value
+  const values =
+    typeof value === 'string'
+      ? (Array(4).fill(value) as Array<typeof value>)
+      : value
   return {
     [`${prefix}Top${postfix}`]: values[0],
     [`${prefix}Right${postfix}`]: values[1],
@@ -25,7 +28,10 @@ export function applyToAllCorners(
   postfix: string,
   value: string | string[],
 ) {
-  const values = typeof value === 'string' ? Array(4).fill(value) : value
+  const values =
+    typeof value === 'string'
+      ? (Array(4).fill(value) as Array<typeof value>)
+      : value
   return {
     [`${prefix}TopLeft${postfix}`]: values[0],
     [`${prefix}TopRight${postfix}`]: values[1],
@@ -40,7 +46,7 @@ export function styleObjToStyleStr(obj: Record<string, unknown>) {
     if (str.length !== 0) {
       str += '\n'
     }
-    str += `${kebabize(key)}: ${obj[key]};`
+    str += `${kebabize(key)}: ${obj[key] as string};`
   }
   return str
 }
@@ -72,7 +78,7 @@ export function padding(value: string) {
   const values = value.split(' ')
   if (values.length < 4) {
     throw new Error(
-      `Shorthened padding style is not allowed. padding: ${values}`,
+      `Shorthened padding style is not allowed. padding: ${values.join(', ')}`,
     )
   }
   return applyToAllSides('padding', '', values)

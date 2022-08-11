@@ -1,5 +1,41 @@
 export const primaryFontFamily = 'Poppins'
 
+export const accordionScales = {
+  accordionHeader: {
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: '16px',
+    lineHeight: '24px',
+  },
+}
+
+export const avatarScales = {
+  avatarLg: {
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: '14px',
+    lineHeight: '125%',
+  },
+  avatarMd: {
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: '12px',
+    lineHeight: '125%',
+  },
+  avatarSm: {
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: '11px',
+    lineHeight: '125%',
+  },
+  avatarXs: {
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: '10px', // TODO: Predicted value (No design yet)
+    lineHeight: '125%',
+  },
+}
+
 //TODO:: try to merge and reduce scales
 export const headingScales = {
   HeadingXSmall: {
@@ -137,14 +173,14 @@ export const buttonScales = {
     fontFamily: primaryFontFamily,
     fontStyle: 'normal',
     fontWeight: 700,
-    fontSize: '14px',
+    fontSize: '12px',
     lineHeight: '18px',
   },
   btnXs: {
     fontFamily: primaryFontFamily,
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: '12px',
+    fontSize: '14px',
     lineHeight: '125%',
   },
 }
