@@ -123,7 +123,7 @@ export const BUTTON_MODIFIERS: ButtonModifiers = {
   },
 }
 
-const StyledButton = styled.button<Props & {theme: Theme}>((props) => ({
+const StyledButton = styled.button<Props>((props) => ({
   padding: '8px 12px',
   borderRadius: '7px',
   minWidth: '100px',
@@ -132,14 +132,14 @@ const StyledButton = styled.button<Props & {theme: Theme}>((props) => ({
   border: 'unset',
   userSelect: 'none',
   '&:disabled': {
-    color: props.theme.colors.buttonDisabledText,
-    backgroundColor: props.theme.colors.buttonDisabledFill,
+    color: (props.theme as Theme).colors.buttonDisabledText,
+    backgroundColor: (props.theme as Theme).colors.buttonDisabledFill,
     cursor: 'not-allowed',
     border: 'unset',
 
     '&:hover': {
-      color: props.theme.colors.buttonDisabledText,
-      backgroundColor: props.theme.colors.buttonDisabledFill,
+      color: (props.theme as Theme).colors.buttonDisabledText,
+      backgroundColor: (props.theme as Theme).colors.buttonDisabledFill,
     },
   },
   // Rendering button styles by props
@@ -153,7 +153,8 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
       kind = ButtonKind.Primary,
       size = ButtonSize.Sm,
       iconPosition = ButtonIconPosition.Left,
-      onClick = (e) => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      onClick = () => {},
       children,
       ...delegated
     },

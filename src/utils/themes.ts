@@ -2,11 +2,11 @@ import {breakpoints} from './breakpoints'
 import {colors} from './colors'
 import sizing from './sizing'
 import {
+  accordionScales,
+  avatarScales,
   buttonScales,
   contentScales,
   formControlScales,
-  avatarScales,
-  accordionScales,
   headingScales,
   labelScales,
   navBarScales,
