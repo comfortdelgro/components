@@ -1,12 +1,12 @@
-import { addDecorator } from "@storybook/react";
-import { withContexts } from "@storybook/addon-contexts/react";
-import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { contexts } from "./contexts";
+import {withContexts} from '@storybook/addon-contexts/react'
+import {MINIMAL_VIEWPORTS} from '@storybook/addon-viewport'
+import {addDecorator} from '@storybook/react'
+import {contexts} from './contexts'
 export const parameters = {
   viewport: {
-    viewports: {  ...MINIMAL_VIEWPORTS },
+    viewports: {...MINIMAL_VIEWPORTS},
   },
-};
+}
 
-addDecorator(withContexts(contexts));
-
+// @ts-ignore
+addDecorator(withContexts(contexts))

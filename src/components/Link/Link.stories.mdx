@@ -1,0 +1,32 @@
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {Link} from './Link'
+
+<Meta title='Navigations' component={Link} />
+
+export const Template = ({label, ...props}) => {
+  return (
+    <Link {...props} target='_blank'>
+      {label}
+    </Link>
+  )
+}
+
+<Canvas withToolbar>
+  <Story
+    name='Link'
+    argTypes={{
+      href: {
+        control: {type: 'text'},
+      },
+      label: {
+        control: {type: 'text'},
+      },
+    }}
+    args={{
+      href: '#',
+      label: 'Standard Link',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

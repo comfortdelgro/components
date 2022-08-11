@@ -1,0 +1,53 @@
+import {Meta, Story, Preview, Canvas} from '@storybook/addon-docs'
+import {action} from '@storybook/addon-actions'
+import {Checkbox} from './Checkbox'
+import {useState} from 'react'
+
+<Meta title='Form Controls' component={Checkbox} />
+
+export const Template = ({label, checked, ...delegated}) => {
+  // const [checked, setChecked] = useState()
+  return (
+    <Checkbox
+      checked={checked}
+      onChange={(e) => {
+        action('onChange')(e)
+      }}
+      {...delegated}
+    >
+      {label}
+    </Checkbox>
+  )
+}
+
+# Radio Buttons
+
+Radio buttons are used to select options within an application.
+
+## Usage
+
+Radio buttons are used to select options within an application.
+
+<Preview withToolbar>
+  <Story
+    name='Checkbox'
+    argTypes={{
+      checked: {
+        control: {type: 'boolean'},
+      },
+      disabled: {
+        control: {type: 'boolean'},
+      },
+      label: {
+        control: {type: 'text'},
+      },
+    }}
+    args={{
+      checked: false,
+      disabled: false,
+      label: 'This is a radio button',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
