@@ -1,8 +1,11 @@
 name: Build and Deploy Storybook
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   build-and-deploy:
