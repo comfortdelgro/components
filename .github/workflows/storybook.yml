@@ -1,6 +1,5 @@
-# Build storybook and deploy it as a github page
-
 name: Build and Deploy Storybook
+
 on:
   release:
     types: [created]
@@ -26,7 +25,7 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Build 🔧
-        run: pnpm build
+        run: pnpm run build:storybook
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
