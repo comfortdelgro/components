@@ -59,17 +59,9 @@ export const HeaderNavBar = ({...restProps}) => {
 }
 
 HeaderNavBar.displayName = 'HeaderNavBar'
-HeaderNavBar.defaultProps = {
-  overrides: {
-    Root: {},
-  },
-}
 
-export const NavBarList = withStyle(BuiStyledNavigationList, ({$theme}) => ({}))
-export const NavBarListItem = withStyle(
-  BuiStyledNavigationItem,
-  ({$theme}) => ({}),
-)
+export const NavBarList = BuiStyledNavigationList
+export const NavBarListItem = BuiStyledNavigationItem
 
 const NavBarTitle = withStyle(
   StyledBlock,

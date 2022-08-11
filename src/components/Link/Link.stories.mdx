@@ -3,8 +3,6 @@ import {Link} from './Link'
 
 <Meta title='Navigations' component={Link} />
 
-export let isDirectlyChanged = false
-
 export const Template = ({label, ...props}) => {
   return (
     <Link {...props} target='_blank'>
@@ -15,7 +13,7 @@ export const Template = ({label, ...props}) => {
 
 <Canvas withToolbar>
   <Story
-    name='Links'
+    name='Link'
     argTypes={{
       href: {
         control: {type: 'text'},
@@ -23,14 +21,10 @@ export const Template = ({label, ...props}) => {
       label: {
         control: {type: 'text'},
       },
-      isActive: {
-        control: {type: 'boolean'},
-      },
     }}
     args={{
-      href: 'https://www.w3.org/',
+      href: '#',
       label: 'Standard Link',
-      isActive: false,
     }}
   >
     {Template.bind({})}

@@ -15,7 +15,7 @@ export enum ButtonKind {
 export enum ButtonSize {
   Large = 'large',
   Sm = 'sm',
-  Xm = 'xm',
+  Xs = 'xs',
 }
 
 export enum ButtonIconPosition {
@@ -68,8 +68,8 @@ export const BUTTON_MODIFIERS: ButtonModifiers = {
     }
     return style
   },
-  xm: ({theme}) => ({
-    ...theme.typography.btnXm,
+  xs: ({theme}) => ({
+    ...theme.typography.btnXs,
     padding: '8px 14px',
   }),
   primary: ({theme}) => {
@@ -132,10 +132,15 @@ const StyledButton = styled.button<Props & {theme: Theme}>((props) => ({
   border: 'unset',
   userSelect: 'none',
   '&:disabled': {
-    backgroundColor: props.theme.colors.buttonDisabledFill,
     color: props.theme.colors.buttonDisabledText,
+    backgroundColor: props.theme.colors.buttonDisabledFill,
     cursor: 'not-allowed',
     border: 'unset',
+
+    '&:hover': {
+      color: props.theme.colors.buttonDisabledText,
+      backgroundColor: props.theme.colors.buttonDisabledFill,
+    },
   },
   // Rendering button styles by props
   ...(props.kind ? BUTTON_MODIFIERS[props.kind](props) : {}),
@@ -150,6 +155,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
       iconPosition = ButtonIconPosition.Left,
       onClick = (e) => {},
       children,
+      ...delegated
     },
     ref,
   ) => {
@@ -160,6 +166,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
         size={size}
         iconPosition={iconPosition}
         onClick={onClick}
+        {...delegated}
       >
         {children}
       </StyledButton>
