@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Meta, Story, Preview} from '@storybook/addon-docs'
-import {Breadcrumbs} from '../Breadcrumbs'
+import {Breadcrumbs, BreadcrumbsLink, BreadcrumbsItem} from '../Breadcrumbs'
 import {Link} from '../Link'
 
 <Meta title='Navigations' component={Breadcrumbs} />
@@ -8,9 +8,9 @@ import {Link} from '../Link'
 <Canvas withToolbar>
   <Story name='Breadcrumbs'>
     <Breadcrumbs>
-      <Link>Standard Link</Link>
-      <Link>Standard Link</Link>
-      <Link isActive='true'>Standard Link</Link>
+      <BreadcrumbsLink href='#'>Standard Link</BreadcrumbsLink>
+      <BreadcrumbsLink href='#'>Standard Link</BreadcrumbsLink>
+      <BreadcrumbsItem>Standard Link</BreadcrumbsItem>
     </Breadcrumbs>
   </Story>
 </Canvas>

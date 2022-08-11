@@ -1,22 +1,25 @@
-import {StyledLink} from 'baseui/link'
+import {useStyletron, withStyle} from 'baseui'
+import {StyledLink as BuiLink} from 'baseui/link'
 import * as React from 'react'
-import useStyler from './styles'
 
 export interface Props {
   href: string
-  isActive?: boolean // todo: un what?
 }
 
-export const Link: React.FC<Props> = ({
-  href,
-  isActive = false,
-  children,
-  ...delegated
-}) => {
-  const className = useStyler({isActive})
+const StyledLink = withStyle(BuiLink, ({$theme}) => ({
+  color: $theme.colors.linkActive,
+  textDecoration: 'underline',
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '14px',
+  lineHeight: '20px',
+}))
+
+export const Link: React.FC<Props> = ({href, children, ...delegated}) => {
+  const [, theme] = useStyletron()
 
   return (
-    <StyledLink href={href} className={className} {...delegated}>
+    <StyledLink href={href} {...delegated}>
       {children}
     </StyledLink>
   )

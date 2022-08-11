@@ -6,65 +6,30 @@
     "type": "git",
     "url": "git+https://github.com/comfortdelgro/design-system"
   },
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build-sb": "build-storybook -s public",
+    "build": "unbuild",
+    "build:storybook": "build-storybook",
+    "dev:storybook": "start-storybook -p 6006",
     "format": "prettier --write --cache --ignore-unknown .",
-    "prepublish": "rm -rf dist && cross-env NODE_ENV=production babel src --out-dir dist --ignore __tests__,spec.js,test.js,stories.mdx,stories.js,__snapshots__ --copy-files",
-    "sb": "start-storybook -p 6006",
-    "tsc:dist": "tsc -p tsconfig.dist.json"
+    "version": "changeset version && pnpm run format"
   },
   "prettier": "@comfortdelgro/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      },
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
-  },
   "dependencies": {
     "baseui": "^11.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^4.4.1",
     "styletron-engine-atomic": "^1.4.8",
-    "styletron-react": "^6.0.2",
-    "web-vitals": "^2.1.4"
+    "styletron-react": "^6.0.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.18.6",
+    "@changesets/cli": "^2.24.2",
+    "@comfortdelgro/eslint-config": "^1.0.2",
     "@comfortdelgro/prettier-config": "^1.0.2",
     "@storybook/addon-contexts": "^5.3.21",
     "@storybook/addon-essentials": "^6.4.22",
@@ -84,9 +49,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/styled-components": "^5.1.25",
     "@types/styletron-engine-atomic": "^1.1.1",
-    "cross-env": "^7.0.3",
     "eslint": "^8.21.0",
-    "eslint-plugin-baseui": "^11.0.3",
     "polished": "^4.2.2",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",

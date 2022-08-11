@@ -1,6 +1,10 @@
 import {Textarea as BuiTextarea} from 'baseui/textarea'
-import {padding} from 'polished'
 import * as React from 'react'
+import {
+  borderRadius,
+  borderWithoutColors,
+  padding,
+} from '../../utils/helpers/style'
 
 export interface Props {
   value: string
@@ -29,29 +33,23 @@ export const Textarea: React.FC<Props> = ({
       placeholder={placeholder}
       disabled={disabled}
       error={error}
-      // isFocused={isFocused} // todo: this property doesn't exist on BuiTextarea
       overrides={{
-        // todo: root doesn't exist
-        // Root: {
-        //   style: (props) => {
-        //     const borderWidth = props.$isFocused || props.$error ? 2 : 1
-        //     return {
-        //       ...borderWithoutColors(`${borderWidth}px solid`),
-        //       ...borderRadius('8px'),
-        //     }
-        //   },
-        // },
+        // @ts-ignore
+        Root: {
+          style: (props: Record<string, unknown>) => ({
+            ...borderWithoutColors(`2px solid`),
+            ...borderRadius('8px'),
+          }),
+        },
         Input: {
-          style: (props) => {
-            return {
-              ...padding('12px 16px 12px 16px'),
-              fontStyle: 'normal',
-              fontWeight: '400',
-              fontSize: '14px',
-              lineHeight: '20px',
-              // color: props.$theme.colors.inputText,
-            }
-          },
+          style: (props) => ({
+            ...padding('12px 16px 12px 16px'),
+            fontStyle: 'normal',
+            fontWeight: '400',
+            fontSize: '14px',
+            lineHeight: '20px',
+            // color: props.$theme.colors.inputText,
+          }),
         },
         InputContainer: {
           style: (props) => ({

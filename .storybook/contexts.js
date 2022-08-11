@@ -1,5 +1,5 @@
 import {Client as Styletron} from 'styletron-engine-atomic'
-import Theme from '../src/Theme'
+import {Theme} from '../src'
 import {defaultTheme} from '../src/utils'
 
 export const contexts = [

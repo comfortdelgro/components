@@ -137,14 +137,14 @@ export const buttonScales = {
     fontFamily: primaryFontFamily,
     fontStyle: 'normal',
     fontWeight: 700,
-    fontSize: '12px',
+    fontSize: '14px',
     lineHeight: '18px',
   },
-  btnXm: {
+  btnXs: {
     fontFamily: primaryFontFamily,
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: '14px',
+    fontSize: '12px',
     lineHeight: '125%',
   },
 }

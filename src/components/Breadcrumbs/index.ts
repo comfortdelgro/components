@@ -1,1 +1,6 @@
-export {Breadcrumbs, type Props as BreadcrumbsProps} from './Breadcrumbs'
+export {
+  Breadcrumbs,
+  BreadcrumbsItem,
+  BreadcrumbsLink,
+  type Props as BreadcrumbsProps,
+} from './Breadcrumbs'

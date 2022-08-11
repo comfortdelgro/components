@@ -5,6 +5,21 @@ import {useState} from 'react'
 
 <Meta title='Form Controls' component={Checkbox} />
 
+export const Template = ({label, checked, ...delegated}) => {
+  // const [checked, setChecked] = useState()
+  return (
+    <Checkbox
+      checked={checked}
+      onChange={(e) => {
+        action('onChange')(e)
+      }}
+      {...delegated}
+    >
+      {label}
+    </Checkbox>
+  )
+}
+
 # Radio Buttons
 
 Radio buttons are used to select options within an application.
@@ -33,12 +48,6 @@ Radio buttons are used to select options within an application.
       label: 'This is a radio button',
     }}
   >
-    {(({label, ...restProps}) => {
-      return (
-        <Checkbox onChange={action('onChange')} {...restProps}>
-          {label}
-        </Checkbox>
-      )
-    }).bind({})}
+    {Template.bind({})}
   </Story>
 </Preview>

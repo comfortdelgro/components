@@ -25,7 +25,7 @@ Buttons are used to trigger internal actions within your web applications.
     name='Buttons'
     argTypes={{
       size: {
-        options: [ButtonSize.Large, ButtonSize.Sm, ButtonSize.Xm],
+        options: [ButtonSize.Large, ButtonSize.Sm, ButtonSize.Xs],
         control: {type: 'radio'},
       },
       kind: {
@@ -45,7 +45,7 @@ Buttons are used to trigger internal actions within your web applications.
     }}
     args={{
       size: ButtonSize.Large,
-      type: ButtonKind.Primary,
+      kind: ButtonKind.Primary,
       value: 'Call to action',
       disabled: false,
     }}
