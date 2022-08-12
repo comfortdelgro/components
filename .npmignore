@@ -1,7 +1,0 @@
-# `yarn publish` should ignore `src`
-# Since all required files in src will be copied to dist by bable
-src
-# other npm unrealted directories
-.storybook
-.github
-.git
