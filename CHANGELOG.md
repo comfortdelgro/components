@@ -1,5 +1,11 @@
 # @comfortdelgro/design-system
 
+## 0.10.1
+
+### Patch Changes
+
+- 6a3c39d: Add missing build step in release workflow to actually publish with dist directory.
+
 ## 0.10.0
 
 ### Minor Changes
