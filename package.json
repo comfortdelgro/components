@@ -2,10 +2,7 @@
   "name": "@comfortdelgro/design-system",
   "version": "0.10.1",
   "description": "Comfortdelgro's design system",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/comfortdelgro/design-system"
-  },
+  "repository": "comfortdelgro/design-system",
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "files": [
