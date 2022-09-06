@@ -1,0 +1,41 @@
+import {useState, useRef} from 'react'
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {action} from '@storybook/addon-actions'
+import {DottedPagination} from './DottedPagination'
+import {Block} from 'baseui/block'
+
+<Meta
+  title='Navigations'
+  component={DottedPagination}
+  parameters={{
+    layout: 'fullscreen',
+  }}
+/>
+
+export const Template = (props) => {
+  return (
+    <Block padding='24px' backgroundColor='primary'>
+      <DottedPagination onChange={action('onChange')} {...props} />
+    </Block>
+  )
+}
+
+<Canvas withToolbar>
+  <Story
+    name='DottedPagination'
+    argTypes={{
+      index: {
+        control: {type: 'number'},
+      },
+      length: {
+        control: {type: 'number'},
+      },
+    }}
+    args={{
+      index: 1,
+      length: 5,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

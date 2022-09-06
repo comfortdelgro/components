@@ -1,0 +1,18 @@
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {action} from '@storybook/addon-actions'
+import {NotFoundError} from './NotFoundError'
+import {Block} from 'baseui/block'
+
+<Meta title='States' component={NotFoundError} />
+
+<Canvas withToolbar>
+  <Story name='NotFoundError'>
+    <Block justifyContent='center' height='50%' width='100%'>
+      <NotFoundError
+        scale='halfScale'
+        onBack={action('onBack')}
+        margin='0 auto'
+      />
+    </Block>
+  </Story>
+</Canvas>

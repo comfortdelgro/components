@@ -1,0 +1,22 @@
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {action} from '@storybook/addon-actions'
+import {Alert, VARIATION} from './Alert'
+import {FlexGrid, FlexGridItem} from 'baseui/flex-grid'
+
+<Meta title='Components' component={Alert} />
+
+export const Template = (props) => (
+  <React.Fragment>
+    <FlexGrid flexGridColumnCount={4}>
+      {Object.keys(VARIATION).map((key, index) => (
+        <FlexGridItem key={`sb-avatar-wic-${key}-${index}`}>
+          <Alert variation={VARIATION[key]}>A Simple Alert</Alert>
+        </FlexGridItem>
+      ))}
+    </FlexGrid>
+  </React.Fragment>
+)
+
+<Canvas withToolbar>
+  <Story name='Alert'>{Template.bind({})}</Story>
+</Canvas>

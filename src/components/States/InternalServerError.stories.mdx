@@ -1,0 +1,18 @@
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {action} from '@storybook/addon-actions'
+import {InternalServerError} from './InternalServerError'
+import {Block} from 'baseui/block'
+
+<Meta title='States' component={InternalServerError} />
+
+<Canvas withToolbar>
+  <Story name='InternalServerError'>
+    <Block justifyContent='center' height='50%' width='100%'>
+      <InternalServerError
+        scale='halfScale'
+        onReload={action('onReload')}
+        margin='0 auto'
+      />
+    </Block>
+  </Story>
+</Canvas>

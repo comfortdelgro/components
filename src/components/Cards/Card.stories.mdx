@@ -9,7 +9,6 @@ import {Button} from '../Button'
 <Canvas withToolbar>
   <Story name='Cards'>
     <Card
-      overrides={{Root: {style: {width: '328px'}}}}
       onChange={action('onChange')}
       headerImage={'https://source.unsplash.com/user/erondu/700x400'}
       title='Example card'
@@ -19,9 +18,7 @@ import {Button} from '../Button'
         faucibus ex, non facilisis nisl.
       </StyledBody>
       <StyledAction>
-        <Button overrides={{BaseButton: {style: {width: '100%'}}}}>
-          Button Label
-        </Button>
+        <Button>Button Label</Button>
       </StyledAction>
     </Card>
   </Story>
