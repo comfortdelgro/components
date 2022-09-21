@@ -1,0 +1,29 @@
+@media screen and (min-width: 320px) {
+  .base {
+    padding: 20px 16px 20px 16px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .base {
+    padding: 32px 48x 32px 48px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .base {
+    padding: 32px 64px 32px 64px;
+  }
+}
+
+.primary {
+  background-color: #0142af;
+}
+
+.secondary {
+  background-color: #333333;
+}
+
+.tertiary {
+  background-color: #ffffff;
+}

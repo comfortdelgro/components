@@ -1,0 +1,17 @@
+{
+  "name": "@design-system/babel-preset",
+  "description": "Automatically load the css for the @design-system design system.",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "comfortdelgro/design-system",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "!*.test.*",
+    "!__snapshots__",
+    "!__tests__"
+  ],
+  "dependencies": {
+    "@design-systems/babel-plugin-include-styles": "4.15.1"
+  }
+}

@@ -1,0 +1,81 @@
+.base {
+  display: inline-flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 7px;
+  min-width: 100px;
+  cursor: pointer;
+  transition: background-color 0.2s linear, color 0.2s linear;
+  border: unset;
+  user-select: none;
+}
+
+.base:disabled {
+  color: var(--cdgButtonBaseText, #757575);
+  background-color: var(--cdgButtonBaseFill, #e6e6e6);
+  cursor: not-allowed;
+  border: unset;
+}
+
+.base:hover {
+  color: var(--cdgButtonBaseHoverText, #757575);
+  background-color: var(--cdgButtonBaseHoverFill, #e6e6e6);
+}
+
+.large {
+  padding: 12px 117px;
+}
+
+.md {
+  padding: 12px 20px;
+}
+
+.sm {
+  padding: 8px 14px;
+}
+
+.primary {
+  color: var(--cdgButtonPrimaryText, #ffffff);
+  background-color: var(--cdgButtonPrimaryFill, #0142af);
+}
+
+.primary:active,
+.primary:hover {
+  background-color: var(--cdgButtonPrimaryHoverFill, #012158);
+}
+
+.secondary {
+  color: var(--cdgButtonSecondaryText, #0142af);
+  border: 1px solid var(--cdgButtonSecondaryBorder, #0142af);
+  background-color: var(--cdgButtonSecondaryFill #0142af);
+}
+
+.secondary:active,
+.secondary:hover {
+  color: var(--cdgButtonSecondaryHoverText, #012158);
+  border: 1px solid var(--cdgButtonSecondaryHoverBorder, #012158);
+  background-color: var(--cdgButtonSecondaryFill, #f7f8f9);
+}
+
+.negative {
+  color: var(--cdgButtonNegativeText, #e31617);
+  border: 1px solid var(--cdgButtonNegativeBorder, #e31617);
+  background-color: var(--cdgButtonNegativeFill, #ffffff);
+}
+
+.negative:active,
+.negative:hover {
+  background-color: var(--cdgButtonNegativeHoverFill, #f9d0d1);
+}
+
+.tertiary {
+  color: var(--cdgButtonTertiaryText, #757575);
+  border: 1px solid var(--cdgButtonTertiaryBorder, transparent);
+  background-color: var(--cdgButtonTertiaryFill, transparent);
+}
+
+.tertiary:active,
+.tertiary:hover {
+  background-color: var(--cdgButtonTertiaryHoverFill, #f7f8f9);
+}
