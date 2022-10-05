@@ -18,7 +18,7 @@ import {Button, ButtonProps} from '../Button'
 type Theme = BuiTheme & typeof defaultTheme['overrides']
 
 export const StyledNavMenuButton = styled(Button)`
-  ${({theme}) => `
+  ${({theme}: {theme: BuiTheme}) => `
     padding: 0;
     width: 24px;
     max-width: 24px;
@@ -45,10 +45,10 @@ export const HeaderNavBar = ({...restProps}) => {
     <BuiHeaderNavigation
       overrides={{
         Root: {
-          style: (props) => ({
+          style: ({$theme}) => ({
             height: '88px',
-            backgroundColor: props.$theme.colors.primary,
-            color: props.$theme.colors.primaryB,
+            backgroundColor: ($theme as BuiTheme).colors.primary,
+            color: ($theme as BuiTheme).colors.primaryB,
             ...padding('16px 48px 16px 16px'),
           }),
         },

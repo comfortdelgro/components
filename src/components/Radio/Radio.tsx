@@ -13,7 +13,7 @@ export enum RadioKind {
   Primary = 'primary',
 }
 
-export interface RadioProps {
+export interface Props {
   type?: RadioKind
   onChange?: () => void
   labelText?: string
@@ -24,71 +24,75 @@ export interface RadioProps {
 }
 
 //@ts-ignore
-const RadioWrapper = buiStyled('div', (props) => ({
-  margin: '5px',
-  cursor: 'pointer',
-  width: props.size,
-  height: props.size,
-  position: 'relative',
+const RadioWrapper = buiStyled('div', (_props) => {
+  const props = _props as Props & {$theme: Theme}
 
-  label: {
-    marginLeft: `calc(${props.size} + 6px)`,
-    whiteSpace: 'nowrap',
-    fontFamily: 'Poppins',
-    fontWeight: 400,
-    fontSize: '14px',
-    lineHeight: props.size,
-  },
+  return {
+    margin: '5px',
+    cursor: 'pointer',
+    width: props.size,
+    height: props.size,
+    position: 'relative',
 
-  ...(({checked, $theme}) => {
-    if (!checked) {
-      return {
-        '&:hover': {
-          '&::before': {
-            borderColor: $theme.colors.radioButtonBorderHovered,
-            background: $theme.colors.radioButtonFillHovered,
+    label: {
+      marginLeft: `calc(${props.size} + 6px)`,
+      whiteSpace: 'nowrap',
+      fontFamily: 'Poppins',
+      fontWeight: 400,
+      fontSize: '14px',
+      lineHeight: props.size,
+    },
+
+    ...(({checked, $theme}) => {
+      if (!checked) {
+        return {
+          '&:hover': {
+            '&::before': {
+              borderColor: $theme.colors.radioButtonBorderHovered,
+              background: $theme.colors.radioButtonFillHovered,
+            },
           },
-        },
-      }
-    }
-  })(props),
-
-  '&::before': {
-    content: '',
-    borderRadius: '100%',
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    top: 0,
-    boxSizing: 'border-box',
-    pointerEvents: 'none',
-    zIndex: 0,
-    // Solving Modifiers
-    ...(({checked, disabled, $theme}) => {
-      const borderStyle = `2px solid`
-      if (disabled) {
-        return {
-          border: `${borderStyle} ${$theme.colors.radioButtonBorderDisabled}`,
-          background: $theme.colors.radioButtonFillDisabled,
-        }
-      } else if (checked) {
-        return {
-          border: `${borderStyle} ${$theme.colors.radioButtonBorderSelected}`,
-          background: $theme.colors.radioButtonFillSelected,
-        }
-      } else {
-        return {
-          border: `${borderStyle} ${$theme.colors.radioButtonBorder}`,
-          background: $theme.colors.radioButtonFill,
         }
       }
     })(props),
-  },
-}))
+
+    '&::before': {
+      content: '',
+      borderRadius: '100%',
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: 0,
+      boxSizing: 'border-box',
+      pointerEvents: 'none',
+      zIndex: 0,
+      // Solving Modifiers
+      ...(({checked, disabled, $theme}) => {
+        const borderStyle = `2px solid`
+        if (disabled) {
+          return {
+            border: `${borderStyle} ${$theme.colors.radioButtonBorderDisabled}`,
+            background: $theme.colors.radioButtonFillDisabled,
+          }
+        } else if (checked) {
+          return {
+            border: `${borderStyle} ${$theme.colors.radioButtonBorderSelected}`,
+            background: $theme.colors.radioButtonFillSelected,
+          }
+        } else {
+          return {
+            border: `${borderStyle} ${$theme.colors.radioButtonBorder}`,
+            background: $theme.colors.radioButtonFill,
+          }
+        }
+      })(props),
+    },
+  }
+})
 
 //@ts-ignore
 const Fill = buiStyled('div', ({$theme}) => ({
-  background: $theme.colors.radioButtonMarkFill,
+  background: ($theme as Theme).colors.radioButtonMarkFill,
   width: 0,
   height: 0,
   borderRadius: '100%',
@@ -129,7 +133,7 @@ const RadioInput = styled.input`
   }
 
   &:checked {
-    & ~ ${Fill} {
+    & ~ ${Fill as any} {
       width: calc(100% - 58%);
       height: calc(100% - 58%);
       transition: width 0.2s ease-out, height 0.2s ease-out;
@@ -137,7 +141,7 @@ const RadioInput = styled.input`
   }
 `
 
-export const Radio: React.FC<RadioProps> = ({
+export const Radio: React.FC<Props> = ({
   name = '',
   type = RadioKind.Primary,
   size = '24px',
@@ -147,6 +151,7 @@ export const Radio: React.FC<RadioProps> = ({
   disabled = false,
 }) => {
   return (
+    // @ts-ignore
     <RadioWrapper type={type} size={size} checked={checked} disabled={disabled}>
       <label>
         {labelText}
@@ -158,6 +163,7 @@ export const Radio: React.FC<RadioProps> = ({
           aria-checked={checked}
           disabled={disabled}
         />
+        {/* @ts-ignore */}
         <Fill size={size} />
       </label>
     </RadioWrapper>

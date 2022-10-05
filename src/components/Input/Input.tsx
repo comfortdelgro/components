@@ -1,7 +1,6 @@
-import type {Theme as BuiTheme} from 'baseui'
-import {useStyletron} from 'baseui'
-import {Icon} from 'baseui/icon'
-import {Input as BuiInput} from 'baseui/input'
+import {Input as BuiInput, InputProps as BuiInputProps} from 'baseui/input'
+import {useStyletron} from 'baseui/styles'
+import type {Theme as BuiTheme} from 'baseui/theme'
 import * as React from 'react'
 import {defaultTheme} from '../../utils'
 import {
@@ -12,9 +11,9 @@ import {
 
 type Theme = BuiTheme & typeof defaultTheme['overrides']
 
-export interface Props {
-  startEnhancer: typeof Icon
-  endEnhancer: typeof Icon
+export interface Props extends BuiInputProps {
+  startEnhancer?: BuiInputProps['startEnhancer']
+  endEnhancer?: BuiInputProps['endEnhancer']
 }
 
 export const Input: React.FC<Props> = ({
@@ -42,12 +41,14 @@ export const Input: React.FC<Props> = ({
         },
       }}
       startEnhancer={
+        // @ts-ignore
         <StartEnhancer
           size={(theme as Theme).sizing.inputEnhancer}
           color={(theme as Theme).colors.inputStartEnhancer}
         />
       }
       endEnhancer={
+        // @ts-ignore
         <EndEnhancer
           size={(theme as Theme).sizing.inputEnhancer}
           color={(theme as Theme).colors.inputStartEnhancer}

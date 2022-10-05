@@ -29,7 +29,7 @@ const Container = styled('div', () => ({
   height: '100%',
 }))
 
-export const TitleContainer = styled('div', () => ({
+const TitleContainer = styled('div', () => ({
   display: 'flex',
   justifyContent: 'center',
   position: 'absolute',
@@ -46,7 +46,7 @@ const PaginationContainer = styled('div', () => ({
   left: '104px',
 }))
 
-const SliderImage = styled('div', ({src}) => ({
+const SliderImage = styled('img', ({src}: {src: string}) => ({
   width: '100%',
   height: '100%',
   borderRadius: '10px',
@@ -55,11 +55,11 @@ const SliderImage = styled('div', ({src}) => ({
   backgroundImage: `url(${src})`,
 }))
 
-export interface CarouselProps {
-  slides: []
+export interface Props {
+  slides: {url: string}[]
 }
 
-export const Carousel: React.FC<CarouselProps> = ({slides, children}) => {
+export const Carousel: React.FC<Props> = ({slides, children}) => {
   const [currentIndex, setCurrentIndex] = React.useState(0)
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0
@@ -79,7 +79,9 @@ export const Carousel: React.FC<CarouselProps> = ({slides, children}) => {
   return (
     <Container>
       <div>
+        {/* @ts-ignore */}
         <StyledChevronRight onClick={goToPrevious} size={45} color='primaryB' />
+        {/* @ts-ignore */}
         <StyledChevronLeft onClick={goToNext} size={45} color='primaryB' />
       </div>
       <SliderImage src={slides[currentIndex].url} />

@@ -1,5 +1,5 @@
-import type {Theme as BuiTheme} from 'baseui'
 import {Delete} from 'baseui/icon'
+import type {Theme as BuiTheme} from 'baseui/theme'
 import * as React from 'react'
 import styled from 'styled-components'
 import {defaultTheme} from '../../utils'
@@ -127,13 +127,14 @@ const marginMain = (el: HTMLElement, sideBarWidth: string) => {
   el.style.marginLeft = sideBarWidth
 }
 
-export interface SideBarProps {
+export interface SideBarProps extends React.HTMLAttributes<HTMLDivElement> {
   collapsible?: boolean
   isOpened?: boolean
   logo?: React.ReactNode
   mainRef?: React.RefObject<HTMLElement>
   onClose?: () => void
   onHover?: React.MouseEventHandler<HTMLDivElement> | (() => void)
+  children: React.ReactNode
 }
 
 export const SideBar = React.forwardRef<HTMLDivElement, SideBarProps>(
@@ -172,7 +173,7 @@ export const SideBar = React.forwardRef<HTMLDivElement, SideBarProps>(
         <StyledLogo isOpened={isOpened}>{logo}</StyledLogo>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child, {isOpened})
+            return React.cloneElement(child, {isOpened} as any)
           }
           return null
         })}
@@ -183,7 +184,8 @@ export const SideBar = React.forwardRef<HTMLDivElement, SideBarProps>(
 
 SideBar.displayName = 'SideBar'
 
-export interface SideBarItemProps {
+export interface SideBarItemProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isActive?: boolean
   isOpened?: boolean
   icon?: React.ReactNode

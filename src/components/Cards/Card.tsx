@@ -1,5 +1,6 @@
 import {
   Card as BuiCard,
+  CardProps as BuiCardProps,
   StyledAction as BuiStyledAction,
   StyledBody as BuiStyledBody,
   StyledContents as BuiStyledContents,
@@ -12,7 +13,9 @@ import {
 import * as React from 'react'
 import {borderRadius, padding} from '../../utils/helpers/style'
 
-export const Card: React.FC = ({children, ...delegated}) => (
+export interface Props extends BuiCardProps {}
+
+export const Card: React.FC<Props> = ({children, ...delegated}) => (
   <BuiCard
     overrides={{
       Contents: {

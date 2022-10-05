@@ -1,5 +1,5 @@
-import type {Theme as BuiTheme} from 'baseui'
-import {styled} from 'baseui'
+import {styled} from 'baseui/styles'
+import type {Theme as BuiTheme} from 'baseui/theme'
 import * as React from 'react'
 import {StyleObject} from 'styletron-react'
 import {defaultTheme} from '../../utils'
@@ -24,7 +24,7 @@ export enum ButtonIconPosition {
   Left = 'left',
 }
 
-export interface Props {
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: string
   kind?: ButtonKind
   size?: ButtonSize
@@ -41,7 +41,7 @@ type ButtonModifiers = {
 
 export const BUTTON_MODIFIERS: ButtonModifiers = {
   large: ({iconPosition, $theme}) => {
-    const style = {...$theme.typography.btnLarge}
+    const style: StyleObject = {...$theme.typography.btnLarge}
     switch (iconPosition) {
       case ButtonIconPosition.Right:
         style.padding = '12px 107px 12px 105px'
@@ -56,7 +56,7 @@ export const BUTTON_MODIFIERS: ButtonModifiers = {
     return style
   },
   sm: ({iconPosition, $theme}) => {
-    const style = {...$theme.typography.btnSm}
+    const style: StyleObject = {...$theme.typography.btnSm}
     switch (iconPosition) {
       case ButtonIconPosition.Right:
         style.padding = '12px 14px 12px 20px'
@@ -125,8 +125,9 @@ export const BUTTON_MODIFIERS: ButtonModifiers = {
   },
 }
 
-const StyledButton = styled('button', (props): StyleObject => {
-  const theme = props.$theme as Theme
+const StyledButton = styled('button', (_props) => {
+  const props = _props as Props & {$theme: Theme}
+
   return {
     display: 'inline-flex',
     flexGrow: 1,
@@ -139,20 +140,20 @@ const StyledButton = styled('button', (props): StyleObject => {
     border: 'unset',
     userSelect: 'none',
     '&:disabled': {
-      color: theme.colors.buttonDisabledText,
-      backgroundColor: theme.colors.buttonDisabledFill,
+      color: props.$theme.colors.buttonDisabledText,
+      backgroundColor: props.$theme.colors.buttonDisabledFill,
       cursor: 'not-allowed',
       border: 'unset',
 
       '&:hover': {
-        color: theme.colors.buttonDisabledText,
-        backgroundColor: theme.colors.buttonDisabledFill,
+        color: props.$theme.colors.buttonDisabledText,
+        backgroundColor: props.$theme.colors.buttonDisabledFill,
       },
     },
     // Rendering button styles by props
     ...(props.kind ? BUTTON_MODIFIERS[props.kind](props) : {}),
     ...(props.size ? BUTTON_MODIFIERS[props.size](props) : {}),
-  }
+  } as StyleObject
 })
 
 export const Button = React.forwardRef<HTMLButtonElement, Props>(
@@ -173,6 +174,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
       <StyledButton
         ref={ref}
         color={color}
+        // @ts-ignore
         kind={kind}
         size={size}
         iconPosition={iconPosition}

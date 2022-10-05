@@ -4,17 +4,17 @@ import * as React from 'react'
 import {StyleObject} from 'styletron-react'
 import {padding} from '../../utils/helpers/style'
 
-export enum COLOR {
+export enum Color {
   blue = 'primayA',
   black = 'primaryB',
   white = 'primaryC',
 }
 
 export interface Props {
-  color?: COLOR
+  color?: Color
 }
 
-export const Footer: React.FC<Props> = ({color = COLOR.blue, ...delegated}) => {
+export const Footer: React.FC<Props> = ({color = Color.blue, ...delegated}) => {
   const [, theme] = useStyletron()
   const style: StyleObject = {}
   style[theme.mediaQuery.large] = padding('32px 64px 32px 64px')

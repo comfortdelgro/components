@@ -1,8 +1,11 @@
-import {FormControl as BuiFormControl} from 'baseui/form-control'
+import {
+  FormControl as BuiFormControl,
+  FormControlProps as BuiFormControlProps,
+} from 'baseui/form-control'
 import * as React from 'react'
 import {margin} from '../../utils/helpers/style'
 
-export interface Props {}
+export interface Props extends BuiFormControlProps {}
 
 export const FormControl: React.FC<Props> = ({children, ...delegated}) => {
   return (

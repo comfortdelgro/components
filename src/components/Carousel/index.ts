@@ -1,1 +1,1 @@
-export {Carousel} from './Carousel'
+export {Carousel, type Props as CarouselProps} from './Carousel'

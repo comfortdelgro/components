@@ -1,6 +1,6 @@
-import type {Theme as BuiTheme} from 'baseui'
-import {styled} from 'baseui'
 import {FlexGrid, FlexGridItem} from 'baseui/flex-grid'
+import {styled} from 'baseui/styles'
+import type {Theme as BuiTheme} from 'baseui/theme'
 import * as React from 'react'
 import {defaultTheme} from '../../utils'
 import {border, borderRadius} from '../../utils/helpers/style'
@@ -29,13 +29,13 @@ const StyledDot: React.FC<StyledDotProp> = styled(
 )
 StyledDot.displayName = 'StyledDot'
 
-export interface DottedPaginationProp {
+export interface Props {
   index: number
   length: number
   onChange: (index: number) => void
 }
 
-export const DottedPagination: React.FC<DottedPaginationProp> = ({
+export const DottedPagination: React.FC<Props> = ({
   index,
   length,
   onChange,
@@ -52,6 +52,7 @@ export const DottedPagination: React.FC<DottedPaginationProp> = ({
     }
     dots.push(
       <FlexGridItem display='flex' key={key}>
+        {/* @ts-ignore */}
         <StyledDot $isActive={isActive} onClick={handleClick} />
       </FlexGridItem>,
     )

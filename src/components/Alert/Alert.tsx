@@ -1,8 +1,9 @@
+import type {Theme as BuiTheme} from 'baseui'
 import {Banner, PropsT} from 'baseui/banner'
 import * as React from 'react'
-import {capitalize} from '../../utils/helpers/helpers'
+import {defaultTheme} from '../../utils'
 
-export enum VARIATION {
+export enum Variation {
   default = 'default',
   success = 'success',
   warning = 'warning',
@@ -10,19 +11,30 @@ export enum VARIATION {
 }
 
 export interface Props extends PropsT {
-  variation: VARIATION
+  variation: Variation
 }
 
-export const Alert: React.FC<Props> = ({variation, ...delegated}) => (
-  <Banner
-    overrides={{
-      Root: {
-        style: ({$theme}) => ({
-          color: $theme.colors.alertDefaultText,
-          backgroundColor: $theme.colors[`alert${capitalize(variation)}Fill`],
-        }),
-      },
-    }}
-    {...delegated}
-  />
-)
+type Theme = BuiTheme & typeof defaultTheme['overrides']
+
+export const Alert: React.FC<Props> = ({variation, ...delegated}) => {
+  const bg = {
+    [Variation.default]: 'alertDefaultFill',
+    [Variation.success]: 'alertSuccessFill',
+    [Variation.warning]: 'alertWarningFill',
+    [Variation.danger]: 'alertDangerFill',
+  } as const
+
+  return (
+    <Banner
+      overrides={{
+        Root: {
+          style: ({$theme}) => ({
+            color: ($theme as Theme).colors.alertDefaultText,
+            backgroundColor: ($theme as Theme).colors[bg[variation]],
+          }),
+        },
+      }}
+      {...delegated}
+    />
+  )
+}

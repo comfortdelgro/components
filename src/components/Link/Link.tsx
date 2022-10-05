@@ -1,8 +1,8 @@
-import {useStyletron, withStyle} from 'baseui'
-import {StyledLink as BuiLink} from 'baseui/link'
+import {LinkProps as BuiLinkProps, StyledLink as BuiLink} from 'baseui/link'
+import {withStyle} from 'baseui/styles'
 import * as React from 'react'
 
-export interface Props {
+export interface Props extends BuiLinkProps {
   href: string
 }
 
@@ -16,8 +16,6 @@ const StyledLink = withStyle(BuiLink, ({$theme}) => ({
 }))
 
 export const Link: React.FC<Props> = ({href, children, ...delegated}) => {
-  const [, theme] = useStyletron()
-
   return (
     <StyledLink href={href} {...delegated}>
       {children}
