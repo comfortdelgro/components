@@ -19,18 +19,9 @@
     "pre-commit": "pnpm exec lint-staged"
   },
   "lint-staged": {
-    "*": "prettier --write --ignore-unknown",
-    "*.ts": "eslint --fix"
+    "*": "prettier --write --ignore-unknown"
   },
   "prettier": "@comfortdelgro/prettier-config",
-  "eslintConfig": {
-    "parserOptions": {
-      "project": "./tsconfig.json"
-    },
-    "extends": [
-      "@comfortdelgro"
-    ]
-  },
   "dependencies": {
     "baseui": "^11.0.2",
     "react": "^17.0.2",
