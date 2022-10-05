@@ -1,0 +1,18 @@
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {action} from '@storybook/addon-actions'
+import {UnauthorizedError} from './UnauthorizedError'
+import {Block} from 'baseui/block'
+
+<Meta title='States' component={UnauthorizedError} />
+
+<Canvas withToolbar>
+  <Story name='UnauthorizedError'>
+    <Block justifyContent='center' height='50%' width='100%'>
+      <UnauthorizedError
+        scale='halfScale'
+        onReturn={action('onReturn')}
+        margin='0 auto'
+      />
+    </Block>
+  </Story>
+</Canvas>

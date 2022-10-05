@@ -4,13 +4,13 @@ import {
   TableBuilder as BuiTableBuilder,
   TableBuilderColumn as BuiTableBuilderColumn,
   TableBuilderColumnProps,
+  TableBuilderProps as BuiTableBuilderProps,
+  TableProps as BuiTableProps,
 } from 'baseui/table-semantic'
 import * as React from 'react'
 import {border, borderRadius} from '../../utils/helpers/style'
 
-export type Props = BuiTable['props']
-
-export const Table: React.FC<Props> = ({...delegated}) => {
+export const Table: React.FC<BuiTableProps> = ({...delegated}) => {
   return (
     <BuiTable
       divider={DIVIDER.horizontal}
@@ -27,10 +27,11 @@ export const Table: React.FC<Props> = ({...delegated}) => {
   )
 }
 
-export const TableBuilder: React.FC<Props> = ({...delegated}) => {
+export const TableBuilder: React.FC<BuiTableBuilderProps<unknown>> = ({
+  ...delegated
+}) => {
   return (
     <BuiTableBuilder
-      divider={DIVIDER.horizontal}
       overrides={{
         Root: {
           style: (props) => ({

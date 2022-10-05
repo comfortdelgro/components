@@ -1,0 +1,45 @@
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {action} from '@storybook/addon-actions'
+import {Badge, KIND, VARIATION} from './Badge'
+import {HeadingLarge} from 'baseui/typography'
+import {Block} from 'baseui/block'
+import {Card, StyledBody, StyledAction} from '../Cards'
+import {Button} from '../Button'
+import {FlexGrid, FlexGridItem} from 'baseui/flex-grid'
+import {capitalize} from '../../utils/helpers/helpers'
+
+<Meta title='Contents' component={Badge} />
+
+export const Template = (props) => (
+  <React.Fragment>
+    {Object.keys(VARIATION).map((vKey, vIndex) => (
+      <React.Fragment key={`sb-badge-variation-${vKey}-${vIndex}`}>
+        <HeadingLarge>{capitalize(VARIATION[vKey])}</HeadingLarge>
+        <FlexGrid
+          flexGridColumnCount={4}
+          flexGridColumnGap='scale300'
+          flexGridRowGap='scale300'
+        >
+          {Object.keys(KIND).map((key, index) => (
+            <FlexGridItem key={`sb-badge-kind-${key}-${index}`}>
+              <Badge content='+99' kind={KIND[key]} variation={VARIATION[vKey]}>
+                <Card
+                  overrides={{Root: {style: {width: '200px'}}}}
+                  onChange={action('onChange')}
+                  headerImage={
+                    'https://source.unsplash.com/user/erondu/700x400'
+                  }
+                  title='Example card'
+                />
+              </Badge>
+            </FlexGridItem>
+          ))}
+        </FlexGrid>
+      </React.Fragment>
+    ))}
+  </React.Fragment>
+)
+
+<Canvas withToolbar>
+  <Story name='Badge'>{Template.bind({})}</Story>
+</Canvas>

@@ -1,4 +1,7 @@
-import {Textarea as BuiTextarea} from 'baseui/textarea'
+import {
+  Textarea as BuiTextarea,
+  TextareaProps as BuiTextareaProps,
+} from 'baseui/textarea'
 import * as React from 'react'
 import {
   borderRadius,
@@ -6,7 +9,7 @@ import {
   padding,
 } from '../../utils/helpers/style'
 
-export interface Props {
+export interface Props extends BuiTextareaProps {
   value: string
   placeholder: string
   disabled: boolean

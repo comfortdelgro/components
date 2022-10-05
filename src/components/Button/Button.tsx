@@ -1,6 +1,7 @@
-import type {Theme as BuiTheme} from 'baseui'
+import {styled} from 'baseui/styles'
+import type {Theme as BuiTheme} from 'baseui/theme'
 import * as React from 'react'
-import styled, {CSSProperties} from 'styled-components'
+import {StyleObject} from 'styletron-react'
 import {defaultTheme} from '../../utils'
 
 type Theme = BuiTheme & typeof defaultTheme['overrides']
@@ -23,7 +24,8 @@ export enum ButtonIconPosition {
   Left = 'left',
 }
 
-export interface Props {
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  color?: string
   kind?: ButtonKind
   size?: ButtonSize
   iconPosition?: ButtonIconPosition
@@ -33,13 +35,13 @@ export interface Props {
 
 type ButtonModifiers = {
   [key in ButtonKind | ButtonSize]: (
-    props: Props & {theme: Theme},
-  ) => CSSProperties
+    props: Props & {$theme: Theme},
+  ) => StyleObject
 }
 
 export const BUTTON_MODIFIERS: ButtonModifiers = {
-  large: ({iconPosition, theme}) => {
-    const style = {...theme.typography.btnLarge} as CSSProperties
+  large: ({iconPosition, $theme}) => {
+    const style: StyleObject = {...$theme.typography.btnLarge}
     switch (iconPosition) {
       case ButtonIconPosition.Right:
         style.padding = '12px 107px 12px 105px'
@@ -53,8 +55,8 @@ export const BUTTON_MODIFIERS: ButtonModifiers = {
     }
     return style
   },
-  sm: ({iconPosition, theme}) => {
-    const style = {...theme.typography.btnSm} as CSSProperties
+  sm: ({iconPosition, $theme}) => {
+    const style: StyleObject = {...$theme.typography.btnSm}
     switch (iconPosition) {
       case ButtonIconPosition.Right:
         style.padding = '12px 14px 12px 20px'
@@ -68,88 +70,96 @@ export const BUTTON_MODIFIERS: ButtonModifiers = {
     }
     return style
   },
-  xs: ({theme}) => ({
-    ...theme.typography.btnXs,
+  xs: ({$theme}) => ({
+    ...$theme.typography.btnXs,
     padding: '8px 14px',
   }),
-  primary: ({theme}) => {
+  primary: ({$theme, color}) => {
     const activeStyle = {
-      backgroundColor: theme.colors.buttonPrimaryHover,
+      backgroundColor: $theme.colors.buttonPrimaryHover,
     }
     return {
-      color: theme.colors.buttonPrimaryText,
-      backgroundColor: theme.colors.buttonPrimaryFill,
+      color: color || $theme.colors.buttonPrimaryText,
+      backgroundColor: $theme.colors.buttonPrimaryFill,
       '&:active': activeStyle,
       '&:hover': activeStyle,
     }
   },
-  secondary: ({theme}) => {
+  secondary: ({$theme, color}) => {
     const activeStyle = {
-      color: theme.colors.buttonSecondaryHoverText,
-      borderColor: theme.colors.buttonSecondaryHoverBorder,
-      backgroundColor: theme.colors.buttonSecondaryHoverFill,
+      color: color || $theme.colors.buttonSecondaryHoverText,
+      borderColor: $theme.colors.buttonSecondaryHoverBorder,
+      backgroundColor: $theme.colors.buttonSecondaryHoverFill,
     }
     return {
-      color: theme.colors.buttonSecondaryText,
-      backgroundColor: theme.colors.buttonSecondaryFill,
-      border: `1px solid ${theme.colors.buttonSecondaryBorder}`,
+      color: color || $theme.colors.buttonSecondaryText,
+      backgroundColor: $theme.colors.buttonSecondaryFill,
+      border: `1px solid ${$theme.colors.buttonSecondaryBorder}`,
       '&:active': activeStyle,
       '&:hover': activeStyle,
     }
   },
-  negative: ({theme}) => {
+  negative: ({$theme, color}) => {
     const activeStyle = {
-      backgroundColor: theme.colors.buttonNegativeHoverFill,
+      backgroundColor: $theme.colors.buttonNegativeHoverFill,
     }
     return {
-      color: theme.colors.buttonNegativeText,
-      backgroundColor: theme.colors.buttonNegativeFill,
-      border: `1px solid ${theme.colors.buttonNegativeBorder}`,
+      color: color || $theme.colors.buttonNegativeText,
+      backgroundColor: $theme.colors.buttonNegativeFill,
+      border: `1px solid ${$theme.colors.buttonNegativeBorder}`,
       '&:active': activeStyle,
       '&:hover': activeStyle,
     }
   },
-  tertiary: ({theme}) => {
+  tertiary: ({$theme, color}) => {
     const activeStyle = {
-      backgroundColor: theme.colors.buttonTertiaryHoverFill,
+      backgroundColor: $theme.colors.buttonTertiaryHoverFill,
     }
     return {
-      color: theme.colors.buttonTertiaryText,
-      backgroundColor: theme.colors.buttonTertiaryFill,
-      border: `1px solid ${theme.colors.buttonTertiaryBorder}`,
+      color: color || $theme.colors.buttonTertiaryText,
+      backgroundColor: $theme.colors.buttonTertiaryFill,
+      border: `1px solid ${$theme.colors.buttonTertiaryBorder}`,
       '&:active': activeStyle,
       '&:hover': activeStyle,
     }
   },
 }
 
-const StyledButton = styled.button<Props>((props) => ({
-  padding: '8px 12px',
-  borderRadius: '7px',
-  minWidth: '100px',
-  cursor: 'pointer',
-  transition: 'background-color 0.2s linear, color 0.2s linear',
-  border: 'unset',
-  userSelect: 'none',
-  '&:disabled': {
-    color: (props.theme as Theme).colors.buttonDisabledText,
-    backgroundColor: (props.theme as Theme).colors.buttonDisabledFill,
-    cursor: 'not-allowed',
-    border: 'unset',
+const StyledButton = styled('button', (_props) => {
+  const props = _props as Props & {$theme: Theme}
 
-    '&:hover': {
-      color: (props.theme as Theme).colors.buttonDisabledText,
-      backgroundColor: (props.theme as Theme).colors.buttonDisabledFill,
+  return {
+    display: 'inline-flex',
+    flexGrow: 1,
+    justifyContent: 'center',
+    padding: '8px 12px',
+    borderRadius: '7px',
+    minWidth: '100px',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s linear, color 0.2s linear',
+    border: 'unset',
+    userSelect: 'none',
+    '&:disabled': {
+      color: props.$theme.colors.buttonDisabledText,
+      backgroundColor: props.$theme.colors.buttonDisabledFill,
+      cursor: 'not-allowed',
+      border: 'unset',
+
+      '&:hover': {
+        color: props.$theme.colors.buttonDisabledText,
+        backgroundColor: props.$theme.colors.buttonDisabledFill,
+      },
     },
-  },
-  // Rendering button styles by props
-  ...(props.kind ? BUTTON_MODIFIERS[props.kind](props) : {}),
-  ...(props.size ? BUTTON_MODIFIERS[props.size](props) : {}),
-}))
+    // Rendering button styles by props
+    ...(props.kind ? BUTTON_MODIFIERS[props.kind](props) : {}),
+    ...(props.size ? BUTTON_MODIFIERS[props.size](props) : {}),
+  } as StyleObject
+})
 
 export const Button = React.forwardRef<HTMLButtonElement, Props>(
   (
     {
+      color,
       kind = ButtonKind.Primary,
       size = ButtonSize.Sm,
       iconPosition = ButtonIconPosition.Left,
@@ -163,6 +173,8 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
     return (
       <StyledButton
         ref={ref}
+        color={color}
+        // @ts-ignore
         kind={kind}
         size={size}
         iconPosition={iconPosition}

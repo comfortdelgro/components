@@ -1,6 +1,1 @@
-export {
-  Table,
-  TableBuilder,
-  TableBuilderColumn,
-  type Props as TableProps,
-} from './Table'
+export {Table, TableBuilder, TableBuilderColumn} from './Table'

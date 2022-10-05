@@ -1,6 +1,7 @@
 import type {Theme as BuiTheme} from 'baseui'
+import {styled as buiStyled} from 'baseui'
 import React from 'react'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import {defaultTheme} from '../../utils'
 
 // TODO: refactor default props declaration
@@ -12,7 +13,7 @@ export enum RadioKind {
   Primary = 'primary',
 }
 
-export interface RadioProps {
+export interface Props {
   type?: RadioKind
   onChange?: () => void
   labelText?: string
@@ -22,91 +23,99 @@ export interface RadioProps {
   checked?: boolean
 }
 
-const RadioWrapper = styled.div<RadioProps & {theme: Theme}>`
-  margin: 5px;
-  cursor: pointer;
-  width: ${(props) => props.size};
-  height: ${(props) => props.size};
-  position: relative;
-  label {
-    margin-left: calc(${(props) => props.size} + 6px);
-    white-space: nowrap;
-    font-family: 'Poppins';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: ${(props) => props.size};
-  }
+//@ts-ignore
+const RadioWrapper = buiStyled('div', (_props) => {
+  const props = _props as Props & {$theme: Theme}
 
-  ${({checked, theme}) => {
-    if (!checked) {
-      return css`
-        &:hover {
-          &::before {
-            border-color: ${theme.colors.radioButtonBorderHovered};
-            background: ${theme.colors.radioButtonFillHovered};
+  return {
+    margin: '5px',
+    cursor: 'pointer',
+    width: props.size,
+    height: props.size,
+    position: 'relative',
+
+    label: {
+      marginLeft: `calc(${props.size} + 6px)`,
+      whiteSpace: 'nowrap',
+      fontFamily: 'Poppins',
+      fontWeight: 400,
+      fontSize: '14px',
+      lineHeight: props.size,
+    },
+
+    ...(({checked, $theme}) => {
+      if (!checked) {
+        return {
+          '&:hover': {
+            '&::before': {
+              borderColor: $theme.colors.radioButtonBorderHovered,
+              background: $theme.colors.radioButtonFillHovered,
+            },
+          },
+        }
+      }
+    })(props),
+
+    '&::before': {
+      content: '',
+      borderRadius: '100%',
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: 0,
+      boxSizing: 'border-box',
+      pointerEvents: 'none',
+      zIndex: 0,
+      // Solving Modifiers
+      ...(({checked, disabled, $theme}) => {
+        const borderStyle = `2px solid`
+        if (disabled) {
+          return {
+            border: `${borderStyle} ${$theme.colors.radioButtonBorderDisabled}`,
+            background: $theme.colors.radioButtonFillDisabled,
+          }
+        } else if (checked) {
+          return {
+            border: `${borderStyle} ${$theme.colors.radioButtonBorderSelected}`,
+            background: $theme.colors.radioButtonFillSelected,
+          }
+        } else {
+          return {
+            border: `${borderStyle} ${$theme.colors.radioButtonBorder}`,
+            background: $theme.colors.radioButtonFill,
           }
         }
-      `
-    }
-  }}
-  &::before {
-    content: '';
-    border-radius: 100%;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    box-sizing: border-box;
-    pointer-events: none;
-    z-index: 0;
-    // Solving Modifiers
-    ${({checked, disabled, theme}) => {
-      const borderStyle = `2px solid`
-      if (disabled) {
-        return `
-          border: ${borderStyle} ${theme.colors.radioButtonBorderDisabled};
-          background: ${theme.colors.radioButtonFillDisabled}
-        `
-      } else if (checked) {
-        return `
-          border: ${borderStyle} ${theme.colors.radioButtonBorderSelected};
-          background: ${theme.colors.radioButtonFillSelected};
-        `
-      } else {
-        return `
-          border: ${borderStyle} ${theme.colors.radioButtonBorder};
-          background: ${theme.colors.radioButtonFill};
-        `
-      }
-    }}
+      })(props),
+    },
   }
-`
+})
 
-const Fill = styled.div<RadioProps & {theme: Theme}>`
-  background: ${({theme}) => theme.colors.radioButtonMarkFill};
-  width: 0;
-  height: 0;
-  border-radius: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease-in, height 0.2s ease-in;
-  pointer-events: none;
-  z-index: 1;
+//@ts-ignore
+const Fill = buiStyled('div', ({$theme}) => ({
+  background: ($theme as Theme).colors.radioButtonMarkFill,
+  width: 0,
+  height: 0,
+  borderRadius: '100%',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  transition: 'width 0.2s ease-in, height 0.2s ease-in',
+  pointerEvents: 'none',
+  zIndex: 1,
 
-  &::before {
-    content: '';
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 100%;
-  }
-`
+  '&::before': {
+    content: '',
+    opacity: 0,
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    borderRadius: '100%',
+  },
+}))
 
 const RadioInput = styled.input`
   opacity: 0;
@@ -124,7 +133,7 @@ const RadioInput = styled.input`
   }
 
   &:checked {
-    & ~ ${Fill} {
+    & ~ ${Fill as any} {
       width: calc(100% - 58%);
       height: calc(100% - 58%);
       transition: width 0.2s ease-out, height 0.2s ease-out;
@@ -132,7 +141,7 @@ const RadioInput = styled.input`
   }
 `
 
-export const Radio: React.FC<RadioProps> = ({
+export const Radio: React.FC<Props> = ({
   name = '',
   type = RadioKind.Primary,
   size = '24px',
@@ -142,6 +151,7 @@ export const Radio: React.FC<RadioProps> = ({
   disabled = false,
 }) => {
   return (
+    // @ts-ignore
     <RadioWrapper type={type} size={size} checked={checked} disabled={disabled}>
       <label>
         {labelText}
@@ -153,6 +163,7 @@ export const Radio: React.FC<RadioProps> = ({
           aria-checked={checked}
           disabled={disabled}
         />
+        {/* @ts-ignore */}
         <Fill size={size} />
       </label>
     </RadioWrapper>

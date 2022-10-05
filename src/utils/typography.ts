@@ -36,43 +36,60 @@ export const avatarScales = {
   },
 }
 
+export const bodyScales = {
+  Body2: {
+    fontFamily: primaryFontFamily,
+    fontStyle: 'normal',
+    fontWeight: 500,
+    fontSize: '16px',
+    lineHeight: '24px',
+  },
+  Body3: {
+    fontFamily: primaryFontFamily,
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '21px',
+  },
+}
+
 //TODO:: try to merge and reduce scales
 export const headingScales = {
   HeadingXSmall: {
     fontStyle: 'normal',
     fontWeight: 700,
-    fontSize: '14px',
-    lineHeight: '17px',
+    fontSize: '24px',
+    lineHeight: '26px',
   },
   HeadingSmall: {
     fontStyle: 'normal',
     fontWeight: 700,
-    fontSize: '16px',
-    lineHeight: '21px',
+    fontSize: '28px',
+    lineHeight: '42px',
   },
   HeadingMedium: {
     fontStyle: 'normal',
     fontWeight: 700,
-    fontSize: '18px',
-    lineHeight: '18px',
+    fontSize: '32px',
+    lineHeight: '48px',
   },
   HeadingLarge: {
     fontStyle: 'normal',
     fontWeight: 700,
-    fontSize: '22px',
-    lineHeight: '28px',
+    fontSize: '40px',
+    lineHeight: '60px',
   },
   HeadingXLarge: {
     fontStyle: 'normal',
-    fontWeight: 500,
-    fontSize: '28px',
-    lineHeight: '34px',
+    fontWeight: 700,
+    fontSize: '48px',
+    lineHeight: '72px',
   },
   HeadingXXLarge: {
     fontStyle: 'normal',
     fontWeight: 700,
-    fontSize: '28px',
-    lineHeight: '34px',
+    fontSize: '56px',
+    lineHeight: '84px',
   },
   h600: {
     fontFamily: primaryFontFamily,
@@ -182,5 +199,22 @@ export const buttonScales = {
     fontWeight: 400,
     fontSize: '14px',
     lineHeight: '125%',
+  },
+}
+
+export const tooltipScales = {
+  tooltipTitle: {
+    fontFamily: primaryFontFamily,
+    fontStyle: 'normal',
+    fontWeight: 500,
+    fontSize: '20px',
+    lineHeight: '30px',
+  },
+  tooltipBody: {
+    fontFamily: primaryFontFamily,
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '21px',
   },
 }

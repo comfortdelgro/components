@@ -1,4 +1,8 @@
-import {Checkbox as BuiCheckbox, LABEL_PLACEMENT} from 'baseui/checkbox'
+import {
+  Checkbox as BuiCheckbox,
+  CheckboxProps as BuiCheckboxProps,
+  LABEL_PLACEMENT,
+} from 'baseui/checkbox'
 import * as React from 'react'
 import {
   borderColors,
@@ -6,7 +10,7 @@ import {
   borderWithoutColors,
 } from '../../utils/helpers/style'
 
-export interface Props {}
+export interface Props extends BuiCheckboxProps {}
 
 export const Checkbox: React.FC<Props> = ({children, ...delegated}) => {
   return (

@@ -4,6 +4,7 @@ import sizing from './sizing'
 import {
   accordionScales,
   avatarScales,
+  bodyScales,
   buttonScales,
   contentScales,
   formControlScales,
@@ -12,6 +13,7 @@ import {
   navBarScales,
   primaryFontFamily,
   tableScales,
+  tooltipScales,
 } from './typography'
 
 export const defaultTheme = {
@@ -107,11 +109,32 @@ export const defaultTheme = {
       sideBarItemHoverFill: colors.primary.cdgBlue,
       sideBarItemText: colors.neutrals[100],
       sideBarItemHoverText: colors.primary.white,
+
+      dottedPaginationFill: colors.background.base,
+
+      badgeDefaultFill: colors.shades.grey20,
+      badgeDefaultText: colors.shades.grey40,
+      badgeSuccessFill: colors.secondary.green,
+      badgeSuccessText: colors.shades.white,
+      badgeWarningFill: colors.secondary.yellow,
+      badgeWarningText: colors.shades.grey100,
+      badgeDangerFill: colors.secondary.red,
+      badgeDangerText: colors.shades.white,
+
+      alertDefaultFill: colors.shades.cdgBlue20,
+      alertDefaultText: colors.primary.grey100,
+      alertSuccessFill: colors.secondary.green20,
+      alertWarningFill: colors.secondary.yellow20,
+      alertDangerFill: colors.secondary.red20,
+
+      tooltipDefaultCancelText: colors.primary.white,
+      tooltipWhiteCancelText: colors.secondary.linkBlue,
     },
 
     typography: {
       ...avatarScales,
       ...accordionScales,
+      ...bodyScales,
       ...headingScales,
       ...labelScales,
       ...contentScales,
@@ -119,6 +142,7 @@ export const defaultTheme = {
       ...formControlScales,
       ...navBarScales,
       ...buttonScales,
+      ...tooltipScales,
     },
 
     sizing,

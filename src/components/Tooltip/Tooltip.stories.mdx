@@ -1,0 +1,39 @@
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {action} from '@storybook/addon-actions'
+import {Tooltip, BgColor} from './Tooltip'
+import {FlexGrid, FlexGridItem} from 'baseui/flex-grid'
+import {Button} from '../Button'
+
+<Meta title='Popups' component={Tooltip} />
+
+export const Template = (props) => (
+  <React.Fragment>
+    <FlexGrid flexGridColumnCount={4}>
+      {Object.keys(BgColor).map((key, index) => (
+        <FlexGridItem key={`sb-tooltip-${key}-${index}`}>
+          <Tooltip
+            title={'Title'}
+            body={
+              'This it tooltips message, you can use it to educate user about the actions. This it tooltips message, you can use it to educate user about the actions.'
+            }
+            cancel={'Call to action'}
+            confirm={'Call to action'}
+            onCancel={action('onCancel')}
+            onForceClose={action('onForceClose')}
+            onConfirm={action('onConfirm')}
+            bgColor={BgColor[key]}
+            showArrow
+            returnFocus
+            autoFocus
+          >
+            <Button>{`Tooltip (${key})`}</Button>
+          </Tooltip>
+        </FlexGridItem>
+      ))}
+    </FlexGrid>
+  </React.Fragment>
+)
+
+<Canvas withToolbar>
+  <Story name='Tooltip'>{Template.bind({})}</Story>
+</Canvas>

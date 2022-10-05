@@ -1,5 +1,5 @@
-import type {Theme as BuiTheme} from 'baseui'
 import {Accordion as BuiAccordion, Panel as BuiPanel} from 'baseui/accordion'
+import type {Theme as BuiTheme} from 'baseui/theme'
 import * as React from 'react'
 import {defaultTheme} from '../../utils'
 import {padding} from '../../utils/helpers/style'

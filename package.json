@@ -2,10 +2,7 @@
   "name": "@comfortdelgro/design-system",
   "version": "0.10.1",
   "description": "Comfortdelgro's design system",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/comfortdelgro/design-system"
-  },
+  "repository": "comfortdelgro/design-system",
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "files": [
@@ -15,8 +12,14 @@
     "build": "unbuild",
     "build:storybook": "build-storybook",
     "dev:storybook": "start-storybook -p 6006",
-    "format": "prettier --write --cache --ignore-unknown .",
+    "format": "prettier --write --cache .",
     "version": "changeset version && pnpm run format"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   },
   "prettier": "@comfortdelgro/prettier-config",
   "dependencies": {
@@ -50,8 +53,10 @@
     "@types/styled-components": "^5.1.25",
     "@types/styletron-engine-atomic": "^1.1.1",
     "eslint": "^8.21.0",
+    "lint-staged": "^13.0.3",
     "polished": "^4.2.2",
     "prettier": "^2.7.1",
+    "simple-git-hooks": "^2.8.0",
     "typescript": "^4.7.4",
     "unbuild": "^0.8.4",
     "webpack": "^5.72.0"

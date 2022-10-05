@@ -1,23 +1,23 @@
-import {Avatar as BuiAvatar} from 'baseui/avatar'
+import {Avatar as BuiAvatar, AvatarProps} from 'baseui/avatar'
 import * as React from 'react'
 
-export enum AvatarSize {
+export enum Size {
   Lg = 'lg',
   Md = 'md',
   Sm = 'sm',
   Xs = 'xs',
 }
 
-export const SIZES: Record<AvatarSize, string> = {
-  [AvatarSize.Lg]: '40px',
-  [AvatarSize.Md]: '32px',
-  [AvatarSize.Sm]: '24px',
-  [AvatarSize.Xs]: '16px',
+export const SIZES: Record<Size, string> = {
+  [Size.Lg]: '40px',
+  [Size.Md]: '32px',
+  [Size.Sm]: '24px',
+  [Size.Xs]: '16px',
 }
 
-export interface Props {
+export interface Props extends AvatarProps {
   name: string
-  size: AvatarSize
+  size: Size
 }
 
 export const Avatar: React.FC<Props> = ({size, ...delegated}) => (

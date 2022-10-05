@@ -1,0 +1,13 @@
+import {Meta, Story, Preview} from '@storybook/addon-docs'
+import {EmptyState} from './EmptyState'
+import {Block} from 'baseui/block'
+
+<Meta title='States' component={EmptyState} />
+
+<Canvas withToolbar>
+  <Story name='EmptyState'>
+    <Block justifyContent='center' height='50%' width='100%'>
+      <EmptyState scale='halfScale' margin='0 auto' />
+    </Block>
+  </Story>
+</Canvas>
