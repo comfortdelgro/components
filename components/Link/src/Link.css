@@ -1,0 +1,17 @@
+.link {
+  text-decoration: underline;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.link:link,
+.link:visited {
+  color: #757575;
+}
+
+.link:hover,
+.link:active {
+  color: #3468bf;
+}

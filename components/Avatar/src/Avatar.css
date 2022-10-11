@@ -1,0 +1,27 @@
+.avatar {
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: block;
+  object-fit: cover;
+}
+
+.initials {
+  font-family: var(--primaryFontFamily, 'Poppins');
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 125%;
+  color: var(--cdgAvatarText, #0142af);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.root {
+  background-color: var(--cdgAvatarFill, #e6ecf7);
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+}
