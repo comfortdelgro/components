@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import styles from './Avatar.css';
 
-interface Props {
+export interface Props {
   initials?: string;
   name?: string;
   size?: number;
@@ -35,9 +35,7 @@ export const Avatar = ({ initials, name = '', size = 40, src }: Props) => {
 
   React.useEffect(() => {
     setImageLoaded(false);
-    console.log('image start loading.');
     if (imageRef.current) {
-      console.log('ref has el.');
       if (typeof src === 'string') {
         imageRef.current.src = src;
         imageRef.current.onload = handleLoad;

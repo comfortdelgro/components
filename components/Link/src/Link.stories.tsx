@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-import Link from '.';
+import { Link } from '.';
 import notes from '../README.md';
 
 export default {
