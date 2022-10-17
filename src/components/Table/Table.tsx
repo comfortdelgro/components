@@ -45,6 +45,10 @@ export const TableBuilder = <T,>(
   )
 }
 
-export const TableBuilderColumn = <T,>(
-  props: BuiTableBuilderColumnProps<T>,
+interface TableBuilderColumnProps<T> extends BuiTableBuilderColumnProps<T> {
+  children: (row: T, rowIndex?: number) => React.ReactNode
+}
+
+export const TableBuilderColumn = <T = Record<string, string>,>(
+  props: TableBuilderColumnProps<T>,
 ): React.ReactElement<any, any> | null => <BuiTableBuilderColumn {...props} />
