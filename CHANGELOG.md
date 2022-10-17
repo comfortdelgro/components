@@ -1,5 +1,11 @@
 # @comfortdelgro/design-system
 
+## 0.11.2
+
+### Patch Changes
+
+- 1c3f6f0: Overrides baseui's default `TableBuilderColumn` children prop which is any.
+
 ## 0.11.1
 
 ### Patch Changes
