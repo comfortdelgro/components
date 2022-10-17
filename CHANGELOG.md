@@ -1,5 +1,11 @@
 # @comfortdelgro/design-system
 
+## 0.11.1
+
+### Patch Changes
+
+- ed0fa4e: Accept generic type parameters from `TableBuilder` and `TableBuilderColumn` components.
+
 ## 0.11.0
 
 ### Minor Changes
