@@ -1,6 +1,6 @@
 {
   "name": "@comfortdelgro/design-system",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Comfortdelgro's design system",
   "repository": "comfortdelgro/design-system",
   "main": "./dist/index.cjs",
