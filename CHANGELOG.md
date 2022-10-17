@@ -1,5 +1,11 @@
 # @comfortdelgro/design-system
 
+## 0.12.0
+
+### Minor Changes
+
+- a96be00: Fix v0.10.1 so that the library is at least usable. Some components were also introduced.
+
 ## 0.11.0
 
 ### Minor Changes
